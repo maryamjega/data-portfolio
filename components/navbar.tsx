@@ -3,326 +3,324 @@
 import { useState, useEffect, useCallback } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { Menu, X, Download, Github, Linkedin } from "lucide-react"
 
-const sectionLinks = [
-  { label: "Home", href: "#home", sectionId: "home" },
-  { label: "Skills", href: "#skills", sectionId: "skills" },
-  { label: "Experience", href: "#experience", sectionId: "experience" },
-  { label: "Contact", href: "#contact", sectionId: "contact" },
+const navLinks = [
+  { label: "About",      href: "#about",      id: "about",       external: false },
+  { label: "Projects",   href: "#projects",   id: "projects",    external: false },
+  { label: "Skills",     href: "#skills",     id: "skills",      external: false },
+  { label: "Wins",       href: "/hackathons", id: "wins",        external: true  },
+  { label: "Experience", href: "#experience", id: "experience",  external: false },
+  { label: "Contact",    href: "#contact",    id: "contact",     external: false },
 ]
 
 export function Navbar() {
   const pathname = usePathname()
   const isHome = pathname === "/"
-  const isProjectsPage = pathname.startsWith("/projects")
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [stuck, setStuck] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    const onScroll = () => {
+      setStuck(window.scrollY > 80)
+      const ids = ["home", ...navLinks.map(l => l.id)]
+      for (let i = ids.length - 1; i >= 0; i--) {
+        const el = document.getElementById(ids[i])
+        if (el && el.getBoundingClientRect().top <= 120) {
+          setActiveSection(ids[i])
+          break
+        }
+      }
+    }
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  // Track which section is currently in view using IntersectionObserver
-  useEffect(() => {
-    if (!isHome) return
-
-    const sectionIds = sectionLinks.map((link) => link.sectionId)
-    const observers: IntersectionObserver[] = []
-
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id)
-      if (!el) return
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveSection(id)
-            }
-          })
-        },
-        {
-          rootMargin: "-40% 0px -55% 0px",
-          threshold: 0,
-        }
-      )
-
-      observer.observe(el)
-      observers.push(observer)
-    })
-
-    return () => {
-      observers.forEach((observer) => observer.disconnect())
-    }
-  }, [isHome])
-
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : ""
-    return () => {
-      document.body.style.overflow = ""
-    }
+    return () => { document.body.style.overflow = "" }
   }, [isOpen])
 
-  const handleSectionClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-      if (!isHome) return // let normal navigation happen for non-home pages
-      e.preventDefault()
-      const targetId = href.replace("#", "")
-      const el = document.getElementById(targetId)
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" })
-      }
-      setIsOpen(false)
-    },
-    [isHome]
-  )
+  const scrollTo = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    if (!isHome) return
+    e.preventDefault()
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+    setIsOpen(false)
+  }, [isHome])
 
-  // Resolve href for section links: on homepage use #anchor, on other pages use /#anchor
-  const resolveSectionHref = (href: string) => (isHome ? href : `/${href}`)
+  const linkColor = (id: string) => {
+    if (isHome && activeSection === id) return "#111010"
+    return stuck ? "rgba(240,235,227,0.45)" : "rgba(17,16,16,0.5)"
+  }
+  const linkHover = stuck ? "#f0ebe3" : "#111010"
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 ${
-        isOpen
-          ? "bg-background border-b border-border"
-          : scrolled
-            ? "bg-background/80 backdrop-blur-lg border-b border-border transition-all duration-300"
-            : "bg-transparent transition-all duration-300"
-      }`}
-    >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="text-lg font-bold tracking-tight text-foreground transition-colors hover:text-primary"
-        >
-          AIC
-        </Link>
-
-        {/* Desktop nav */}
-        <ul className="hidden items-center gap-1 lg:flex">
-          {sectionLinks.slice(0, 1).map((link) => (
-            <li key={link.href}>
-              <a
-                href={resolveSectionHref(link.href)}
-                onClick={(e) => handleSectionClick(e, link.href)}
-                className={`relative rounded-md px-3 py-2 text-sm transition-colors ${
-                  isHome && activeSection === link.sectionId
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {link.label}
-                {isHome && activeSection === link.sectionId && (
-                  <span className="absolute bottom-0 left-3 right-3 h-px bg-primary" />
-                )}
-              </a>
-            </li>
-          ))}
-
-          {/* About - links to dedicated page */}
-          <li>
-            <Link
-              href="/about"
-              className={`relative rounded-md px-3 py-2 text-sm transition-colors ${
-                pathname === "/about"
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              About
-              {pathname === "/about" && (
-                <span className="absolute bottom-0 left-3 right-3 h-px bg-primary" />
-              )}
-            </Link>
-          </li>
-
-          {/* Projects - links to dedicated page */}
-          <li>
-            <Link
-              href="/projects"
-              className={`relative rounded-md px-3 py-2 text-sm transition-colors ${
-                isProjectsPage
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Projects
-              {isProjectsPage && (
-                <span className="absolute bottom-0 left-3 right-3 h-px bg-primary" />
-              )}
-            </Link>
-          </li>
-
-          {sectionLinks.slice(1).map((link) => (
-            <li key={link.href}>
-              <a
-                href={resolveSectionHref(link.href)}
-                onClick={(e) => handleSectionClick(e, link.href)}
-                className={`relative rounded-md px-3 py-2 text-sm transition-colors ${
-                  isHome && activeSection === link.sectionId
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {link.label}
-                {isHome && activeSection === link.sectionId && (
-                  <span className="absolute bottom-0 left-3 right-3 h-px bg-primary" />
-                )}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        {/* Desktop right-side actions */}
-        <div className="hidden items-center gap-2 lg:flex">
-          <a
-            href="https://github.com/ibnoucheikhalae"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub profile"
-            className="flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-card hover:text-primary"
-          >
-            <Github className="h-[18px] w-[18px]" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/alae-ibnou-cheikh-a9994b334/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn profile"
-            className="flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-card hover:text-primary"
-          >
-            <Linkedin className="h-[18px] w-[18px]" />
-          </a>
-          <a
-            href="/cv.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2 inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all duration-200 hover:bg-primary-hover hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-          >
-            <Download className="h-4 w-4" />
-            Download CV
-          </a>
-        </div>
-
-        {/* Mobile menu button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="text-foreground lg:hidden"
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-        >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </nav>
-
-      {/* Mobile nav - always mounted, toggled via opacity/pointer-events for instant display */}
-      <div
-        className={`fixed inset-x-0 top-[65px] bottom-0 border-t border-border bg-background lg:hidden transition-opacity duration-150 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        aria-hidden={!isOpen}
+    <>
+      {/* Floating hamburger mobile only */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle menu"
+        className="lg:hidden"
+        style={{
+          position: "fixed",
+          top: 20, right: 20,
+          zIndex: 802,
+          background: isOpen ? "rgba(20,20,20,0.95)" : "rgba(247,243,238,0.92)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          border: isOpen ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(17,16,16,0.12)",
+          borderRadius: 10,
+          cursor: "pointer",
+          padding: "10px 12px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 5,
+          transition: "background 0.25s, border-color 0.25s",
+        }}
       >
-          <ul className="flex flex-col gap-1 px-6 py-6">
-            {/* Home link */}
-            <li>
-              <a
-                href={resolveSectionHref("#home")}
-                onClick={(e) => handleSectionClick(e, "#home")}
-                className={`block rounded-lg px-4 py-3 text-sm transition-colors ${
-                  isHome && activeSection === "home"
-                    ? "bg-primary/10 text-primary font-medium"
-                    : "text-muted-foreground hover:bg-card hover:text-foreground"
-                }`}
-              >
-                Home
-              </a>
-            </li>
+        {[0, 1, 2].map(i => (
+          <span
+            key={i}
+            style={{
+              display: "block",
+              width: 22, height: 2,
+              background: isOpen ? "#f0ebe3" : "#111010",
+              borderRadius: 2,
+              transition: "transform 0.2s, opacity 0.2s, background 0.25s",
+              transform: isOpen && i === 0 ? "rotate(45deg) translate(5px, 5px)" : isOpen && i === 2 ? "rotate(-45deg) translate(5px, -5px)" : "none",
+              opacity: isOpen && i === 1 ? 0 : 1,
+            }}
+          />
+        ))}
+      </button>
 
-            {/* About - links to dedicated page */}
-            <li>
-              <Link
-                href="/about"
-                onClick={() => setIsOpen(false)}
-                className={`block rounded-lg px-4 py-3 text-sm transition-colors ${
-                  pathname === "/about"
-                    ? "bg-primary/10 text-primary font-medium"
-                    : "text-muted-foreground hover:bg-card hover:text-foreground"
-                }`}
-              >
-                About
-              </Link>
-            </li>
+      <header
+        className="max-lg:hidden"
+        style={{
+          position: "fixed",
+          top: 0, left: 0, right: 0,
+          zIndex: 800,
+          background: stuck ? "rgba(12,12,12,0.97)" : "transparent",
+          backdropFilter: stuck ? "blur(24px)" : "none",
+          WebkitBackdropFilter: stuck ? "blur(24px)" : "none",
+          borderBottom: stuck ? "1px solid rgba(255,255,255,0.07)" : "none",
+          transition: "background 0.3s, border-color 0.3s",
+        }}
+      >
+        <nav
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "0 88px",
+            height: 64,
+          }}
+          className="max-lg:px-6"
+        >
+          {/* Logo */}
+          <Link
+            href="/"
+            style={{
+              fontFamily: "var(--font-syne,'Syne'),sans-serif",
+              fontWeight: 800,
+              fontSize: 17,
+              textDecoration: "none",
+              color: stuck ? "#f0ebe3" : "#111010",
+              letterSpacing: "-0.5px",
+              transition: "color 0.3s",
+            }}
+          >
+            A<span style={{ color: "#111010" }}>.</span>IC
+          </Link>
 
-            {/* Projects - links to dedicated page */}
-            <li>
-              <Link
-                href="/projects"
-                onClick={() => setIsOpen(false)}
-                className={`block rounded-lg px-4 py-3 text-sm transition-colors ${
-                  isProjectsPage
-                    ? "bg-primary/10 text-primary font-medium"
-                    : "text-muted-foreground hover:bg-card hover:text-foreground"
-                }`}
-              >
-                Projects
-              </Link>
-            </li>
-
-            {/* Remaining section links */}
-            {sectionLinks.slice(1).map((link) => (
-              <li key={link.href}>
-                <a
-                  href={resolveSectionHref(link.href)}
-                  onClick={(e) => handleSectionClick(e, link.href)}
-                  className={`block rounded-lg px-4 py-3 text-sm transition-colors ${
-                    isHome && activeSection === link.sectionId
-                      ? "bg-primary/10 text-primary font-medium"
-                      : "text-muted-foreground hover:bg-card hover:text-foreground"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+          {/* Desktop links */}
+          <ul
+            style={{ display: "flex", alignItems: "center", gap: 2, listStyle: "none", margin: 0, padding: 0 }}
+            className="max-lg:hidden"
+          >
+            {navLinks.map(link => {
+              const active = isHome && activeSection === link.id
+              const sharedStyle = {
+                display: "block",
+                padding: "6px 14px",
+                fontFamily: "var(--font-ibm-plex-mono,'IBM Plex Mono'),monospace",
+                fontSize: 11,
+                fontWeight: 500,
+                letterSpacing: "1.2px",
+                textTransform: "uppercase" as const,
+                textDecoration: "none",
+                color: linkColor(link.id),
+                transition: "color 0.2s",
+              }
+              return (
+                <li key={link.href}>
+                  {link.external ? (
+                    <Link
+                      href={link.href}
+                      style={sharedStyle}
+                      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = linkHover }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = linkColor(link.id) }}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={isHome ? link.href : `/${link.href}`}
+                      onClick={e => scrollTo(e, link.id)}
+                      style={sharedStyle}
+                      onMouseEnter={e => { if (!active) (e.currentTarget as HTMLAnchorElement).style.color = linkHover }}
+                      onMouseLeave={e => { if (!active) (e.currentTarget as HTMLAnchorElement).style.color = linkColor(link.id) }}
+                    >
+                      {link.label}
+                    </a>
+                  )}
+                </li>
+              )
+            })}
           </ul>
 
-          <div className="border-t border-border px-6 py-6">
-            <div className="flex items-center gap-3">
-              <a
-                href="https://github.com/ibnoucheikhalae"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub profile"
-                className="flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+          {/* CV button */}
+          <div className="max-lg:hidden">
+            <a
+              href="/Resume Alae Ibnou Cheikh.pdf"
+              download
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                padding: "8px 18px",
+                borderRadius: 8,
+                fontFamily: "var(--font-ibm-plex-mono,'IBM Plex Mono'),monospace",
+                fontSize: 11,
+                fontWeight: 500,
+                letterSpacing: "1px",
+                textDecoration: "none",
+                background: "#111010",
+                color: "#fff",
+                transition: "background 0.2s, transform 0.15s",
+                textTransform: "uppercase",
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.03)" }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.transform = "" }}
+            >
+              Download CV
+            </a>
+          </div>
+
+
+        </nav>
+      </header>
+
+      {/* Mobile sidebar */}
+      <div
+        className="lg:hidden"
+        style={{ position: "fixed", inset: 0, zIndex: 801, pointerEvents: isOpen ? "auto" : "none" }}
+      >
+        <div
+          onClick={() => setIsOpen(false)}
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(0,0,0,0.55)",
+            opacity: isOpen ? 1 : 0,
+            transition: "opacity 0.25s",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 0, left: 0, bottom: 0,
+            width: 280,
+            background: "#0c0c0c",
+            borderRight: "1px solid rgba(255,255,255,0.07)",
+            transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+            transition: "transform 0.3s cubic-bezier(0.16,1,0.3,1)",
+            padding: "72px 32px 40px",
+            display: "flex",
+            flexDirection: "column",
+            gap: 4,
+          }}
+        >
+          {/* Sidebar logo */}
+          <div style={{ marginBottom: 24, paddingBottom: 20, borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+            <Link
+              href="/"
+              onClick={() => setIsOpen(false)}
+              style={{
+                fontFamily: "var(--font-syne,'Syne'),sans-serif",
+                fontWeight: 800,
+                fontSize: 20,
+                textDecoration: "none",
+                color: "#f0ebe3",
+                letterSpacing: "-0.5px",
+              }}
+            >
+              A<span style={{ opacity: 0.4 }}>.</span>IC
+            </Link>
+          </div>
+
+          {navLinks.map((link, i) => {
+            const mobileSharedStyle = {
+              display: "flex",
+              alignItems: "center",
+              gap: 16,
+              padding: "12px 0",
+              borderBottom: "1px solid rgba(255,255,255,0.05)",
+              textDecoration: "none",
+              color: activeSection === link.id ? "#ffffff" : "rgba(240,235,227,0.65)",
+              fontFamily: "var(--font-syne,'Syne'),sans-serif",
+              fontWeight: 700,
+              fontSize: 18,
+              transition: "color 0.2s",
+            }
+            const num = <span style={{ fontFamily: "var(--font-ibm-plex-mono,'IBM Plex Mono'),monospace", fontSize: 10, color: "#333" }}>0{i}</span>
+            return link.external ? (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                style={mobileSharedStyle}
               >
-                <Github className="h-5 w-5" />
-              </a>
+                {num}{link.label}
+              </Link>
+            ) : (
               <a
-                href="https://www.linkedin.com/in/alae-ibnou-cheikh-a9994b334/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn profile"
-                className="flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                key={link.href}
+                href={isHome ? link.href : `/${link.href}`}
+                onClick={e => scrollTo(e, link.id)}
+                style={mobileSharedStyle}
               >
-                <Linkedin className="h-5 w-5" />
+                {num}{link.label}
               </a>
-              <a
-                href="/cv.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-auto inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-all duration-200 hover:bg-primary-hover hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-              >
-                <Download className="h-4 w-4" />
-                Download CV
-              </a>
-            </div>
+            )
+          })}
+
+          {/* CV button in sidebar */}
+          <div style={{ marginTop: "auto", paddingTop: 32 }}>
+            <a
+              href="/Resume Alae Ibnou Cheikh.pdf"
+              download
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "12px 24px",
+                borderRadius: 8,
+                fontFamily: "var(--font-ibm-plex-mono,'IBM Plex Mono'),monospace",
+                fontSize: 11,
+                fontWeight: 500,
+                letterSpacing: "1px",
+                textDecoration: "none",
+                background: "#f0ebe3",
+                color: "#111010",
+                textTransform: "uppercase",
+              }}
+            >
+              Download CV
+            </a>
           </div>
         </div>
-      </header>
+      </div>
+    </>
   )
 }
