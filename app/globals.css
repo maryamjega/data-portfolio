@@ -4,45 +4,63 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #000000;
-  --foreground: #FFFFFF;
-  --card: #1A1A1A;
-  --card-foreground: #FFFFFF;
-  --popover: #1A1A1A;
-  --popover-foreground: #FFFFFF;
-  --primary: #8B5CF6;
-  --primary-foreground: #000000;
-  --secondary: #333333;
-  --secondary-foreground: #FFFFFF;
-  --muted: #404040;
-  --muted-foreground: #A0A0A0;
-  --accent: #FF006E;
-  --accent-foreground: #FFFFFF;
-  --destructive: #FF4757;
-  --destructive-foreground: #000000;
-  --border: #2A2A2A;
-  --input: #2A2A2A;
-  --ring: #8B5CF6;
-  --primary-hover: #7C3AED;
-  --chart-1: #8B5CF6;
-  --chart-2: #FF006E;
-  --chart-3: #00FF88;
-  --chart-4: #FFB800;
-  --chart-5: #0080FF;
+  /* Light (cream) base — hero, projects, soft skills, contact, footer */
+  --background: #f7f3ee;
+  --foreground: #111010;
+  --card: #ffffff;
+  --card-foreground: #111010;
+  --popover: #ffffff;
+  --popover-foreground: #111010;
+  --primary: #ff2d78;
+  --primary-foreground: #ffffff;
+  --secondary: #f0ebe3;
+  --secondary-foreground: #111010;
+  --muted: #e8e2da;
+  --muted-foreground: #999999;
+  --accent: #ff2d78;
+  --accent-foreground: #ffffff;
+  --destructive: #ff2d78;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0,0,0,0.07);
+  --input: #f0ebe3;
+  --ring: #ff2d78;
+  --primary-hover: #e0005e;
+
+  /* Pink accent */
+  --pink:      #ff2d78;
+  --pink2:     #e0005e;
+  --pink-soft: rgba(255,45,120,0.09);
+  --pink-bdr:  rgba(255,45,120,0.28);
+
+  /* Dark section tokens — about, skills, experience, marquee */
+  --dark-bg:       #0c0c0c;
+  --dark-card:     #121212;
+  --dark-secondary: #181818;
+  --dark-border:   rgba(255,255,255,0.07);
+  --dark-fg:       #f0ebe3;
+
+  --dim: #999;
+  --bdr: rgba(0,0,0,0.07);
+  --chart-1: #FFFFFF;
+  --chart-2: #808080;
+  --chart-3: #404040;
+  --chart-4: #606060;
+  --chart-5: #202020;
   --radius: 0.625rem;
   --sidebar: #1A1A1A;
   --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #8B5CF6;
+  --sidebar-primary: #FFFFFF;
   --sidebar-primary-foreground: #000000;
   --sidebar-accent: #2A2A2A;
   --sidebar-accent-foreground: #FFFFFF;
   --sidebar-border: #2A2A2A;
-  --sidebar-ring: #8B5CF6;
+  --sidebar-ring: #FFFFFF;
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+  --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  --font-display: var(--font-syne), 'Syne', system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -80,6 +98,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-pastel-pink: var(--pastel-pink);
+  --color-pastel-pink-light: var(--pastel-pink-light);
 }
 
 @layer base {
@@ -91,6 +111,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    cursor: none;
   }
 }
 
@@ -102,5 +123,155 @@
   50% {
     transform: translateY(6px);
     opacity: 0.4;
+  }
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes card-shine {
+  0% {
+    background-position: -1000px -1000px;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+@keyframes scroll-slow {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-medium {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-medium-fast {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-fast {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #666;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.section-tag::before {
+  content: '//';
+  color: #bbb;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  background: none;
+  flex-shrink: 0;
+}
+
+/* Custom cursor */
+.c-dot {
+  width: 7px; height: 7px;
+  background: #111010; border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+}
+.c-ring {
+  width: 30px; height: 30px;
+  border: 1px solid rgba(212,116,138,0.4); border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+}
+
+/* Scroll progress bar */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: #111010;
+  box-shadow: none;
+  z-index: 9997;
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+/* Scroll reveal */
+.sr {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sr-l {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sr-r {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sr.in, .sr-l.in, .sr-r.in {
+  opacity: 1;
+  transform: none;
+}
+.stagger > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stagger.in > * { opacity: 1; transform: none; }
+.stagger.in > *:nth-child(1) { transition-delay: 0s; }
+.stagger.in > *:nth-child(2) { transition-delay: 0.09s; }
+.stagger.in > *:nth-child(3) { transition-delay: 0.18s; }
+.stagger.in > *:nth-child(4) { transition-delay: 0.27s; }
+.stagger.in > *:nth-child(5) { transition-delay: 0.36s; }
+.stagger.in > *:nth-child(6) { transition-delay: 0.45s; }
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display, 'Syne', system-ui, sans-serif);
   }
 }
