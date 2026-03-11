@@ -1,345 +1,352 @@
-"use client"
+'use client';
 
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowLeft, TrendingDown, BarChart3, Zap, Layers, Brain, Map } from "lucide-react"
-import React from "react"
+import { useEffect } from 'react';
+import './coastal-change.css';
 
-export default function CoastalChangeAIPage() {
-  const [expandedImage, setExpandedImage] = React.useState<string | null>(null)
+export default function CoastalChangePage() {
+  useEffect(() => {
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
 
-  const features = [
-    {
-      title: "Data Pipeline",
-      icon: <Layers className="h-6 w-6" />,
-      description: "Multi-source environmental dataset ingestion and preprocessing",
-    },
-    {
-      title: "Change Detection",
-      icon: <Brain className="h-6 w-6" />,
-      description: "AI classification models to identify land-use and vegetation changes",
-    },
-    {
-      title: "Erosion Forecasting",
-      icon: <TrendingDown className="h-6 w-6" />,
-      description: "Regression analysis for predicting coastal erosion rates and trends",
-    },
-    {
-      title: "Visualization",
-      icon: <Map className="h-6 w-6" />,
-      description: "Interactive charts and maps revealing coastal change patterns",
-    },
-    {
-      title: "Trend Analysis",
-      icon: <BarChart3 className="h-6 w-6" />,
-      description: "Statistical analysis of multi-year environmental data patterns",
-    },
-    {
-      title: "Sustainability Reports",
-      icon: <Zap className="h-6 w-6" />,
-      description: "Automated report generation for planning teams and stakeholders",
-    },
-  ]
+    const handleMouseMove = (e: MouseEvent) => {
+      mx = e.clientX; my = e.clientY;
+      if (cursor) { cursor.style.left = (mx - 6) + 'px'; cursor.style.top = (my - 6) + 'px'; }
+    };
+    document.addEventListener('mousemove', handleMouseMove);
 
-  const techStack = ["Java", "Machine Learning", "Data Analysis", "Environmental Science", "Python", "Visualization"]
+    const animRing = () => {
+      rx += (mx - rx - 20) * 0.12; ry += (my - ry - 20) * 0.12;
+      if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
+      requestAnimationFrame(animRing);
+    };
+    animRing();
+
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(r => obs.observe(r));
+
+    return () => { document.removeEventListener('mousemove', handleMouseMove); obs.disconnect(); };
+  }, []);
 
   return (
     <>
-      {expandedImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
-          onClick={() => setExpandedImage(null)}
-        >
-          <div className="relative max-w-4xl max-h-[90vh] w-full h-full" onClick={(e) => e.stopPropagation()}>
-            <button
-              onClick={() => setExpandedImage(null)}
-              className="absolute -top-10 right-0 text-white hover:text-primary transition-colors z-10 group"
-            >
-              <svg
-                className="w-8 h-8 group-hover:scale-110 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <Image
-              src={`/images/${expandedImage}.jpg`}
-              alt="Expanded view"
-              fill
-              className="object-contain"
-            />
+      <div className="cursor" id="cursor"></div>
+      <div className="cursor-ring" id="cursorRing"></div>
+
+      <nav>
+        <div className="nav-links">
+          <a href="#findings">Findings</a>
+          <a href="#processes">Processes</a>
+          <a href="#ai">AI Prototype</a>
+          <a href="#impact">Impact</a>
+          <a href="#process">Timeline</a>
+        </div>
+        <a href="/projects" className="nav-back">← Back to Projects</a>
+      </nav>
+
+      {/* Hero */}
+      <section className="hero" id="overview">
+        <div className="hero-bg">
+          <div className="hero-orb orb1"></div>
+          <div className="hero-orb orb2"></div>
+        </div>
+
+        <div className="hero-left">
+          <div className="hero-tag">RSK Group · AI &amp; Environmental Innovation Challenge</div>
+          <h1>Coastal<br /><span className="line2">Change.</span></h1>
+          <p className="hero-desc">
+            A data-driven study of erosion, accretion, and sea-level rise along the North Norfolk Coast combining satellite imagery analysis, LiDAR elevation data, and an AI-powered erosion prediction prototype.
+          </p>
+          <div className="hero-ctas">
+            <a href="#findings" className="btn-primary">View Findings →</a>
+            <a href="#ai" className="btn-secondary">AI Prototype</a>
           </div>
         </div>
-      )}
 
-      <main className="min-h-screen bg-background">
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-24 overflow-hidden">
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-            <svg className="absolute inset-0 opacity-10" width="100%" height="100%">
-              <defs>
-                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
+        <div className="hero-right">
+          <div className="float-card float-card-1">
+            <div className="float-label">Sea-Level Rise</div>
+            <div className="float-value orange">4.3mm</div>
+            <div className="float-sub">Per year · North Norfolk</div>
           </div>
 
-          <div className="relative max-w-4xl mx-auto text-center">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary mb-8"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back to Home
-            </Link>
-
-            <div className="space-y-6">
-              <div className="flex justify-center gap-2 flex-wrap">
-                {["AI", "Sustainability", "Environmental Analysis", "Data Science"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary"
-                  >
-                    {tag}
-                  </span>
-                ))}
+          <div className="data-card">
+            <div className="data-card-bar">
+              <div className="d-dot r"></div><div className="d-dot y"></div><div className="d-dot g"></div>
+              <span className="data-card-title">coastal_analysis.py</span>
+            </div>
+            <div className="data-body">
+              <div className="data-banner">
+                <div className="data-banner-label">AI Erosion Prediction</div>
+                <div className="data-banner-val">Happisburgh</div>
+                <div className="data-banner-sub">Cliff · Soft sedimentary · HIGH risk</div>
               </div>
-
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground">
-                Coastal Change AI Analysis
-              </h1>
-
-              <p className="text-xl text-muted-foreground">
-                Machine learning insights for coastal environmental sustainability
-              </p>
-
-              <p className="max-w-2xl mx-auto text-base text-muted-foreground leading-relaxed">
-                An intelligent platform that reveals hidden patterns in coastal environmental data, enabling
-                researchers and planners to understand erosion, vegetation changes, and sea-level impacts through
-                advanced AI analysis and visualization.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Environmental Challenge Section */}
-        <section className="px-6 py-24 md:py-32">
-          <div className="mx-auto max-w-4xl">
-            <div className="rounded-2xl border border-border bg-card/50 backdrop-blur p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-foreground mb-6">The Challenge</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                Coastal regions worldwide face accelerating environmental changes from climate factors, urbanization,
-                and sea-level rise. Researchers collect vast amounts of satellite imagery and sensor data, but
-                interpreting these datasets manually is time-consuming and prone to human bias.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                The goal was to develop an intelligent system that could automatically identify patterns in coastal
-                data, quantify changes over time, and generate forecasts to inform sustainability planning.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Solution Section */}
-        <section className="px-6 py-24 md:py-32 bg-card/30">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-foreground mb-12">AI-Powered Solution</h2>
-
-            <p className="text-muted-foreground leading-relaxed mb-12">
-              Built a comprehensive Java-based analysis platform that ingests multi-source environmental data and
-              applies machine learning models to detect changes, quantify trends, and forecast future impacts. The
-              system provides interactive visualizations and automated reports for stakeholders.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map((feature, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl border border-border bg-card p-6 hover:border-primary/50 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300"
-                >
-                  <div className="inline-flex h-10 w-10 rounded-lg bg-primary/10 text-primary items-center justify-center mb-4">
-                    {feature.icon}
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* AI Models Section */}
-        <section className="px-6 py-24 md:py-32">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-foreground mb-12">Machine Learning Models</h2>
-
-            <div className="space-y-4">
-              {[
-                {
-                  name: "Classification Models",
-                  desc: "Detect and classify land-use changes (urban, vegetation, water bodies) with high precision",
-                },
-                {
-                  name: "Regression Analysis",
-                  desc: "Predict erosion rates and shoreline displacement based on historical environmental trends",
-                },
-                {
-                  name: "Anomaly Detection",
-                  desc: "Identify unusual coastal patterns that may indicate accelerated change or environmental stress",
-                },
-                {
-                  name: "Time-Series Forecasting",
-                  desc: "Project future coastal states based on observed trends and environmental parameters",
-                },
-              ].map((model, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-4 p-4 rounded-lg border border-border bg-card hover:bg-card/50 transition-colors"
-                >
-                  <div className="h-8 w-8 rounded bg-primary/20 flex items-center justify-center flex-shrink-0 text-primary font-semibold text-sm">
-                    {i + 1}
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">{model.name}</h3>
-                    <p className="text-sm text-muted-foreground">{model.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Tech Stack Section */}
-        <section className="px-6 py-24 md:py-32 bg-card/30">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-foreground mb-12">Technology Stack</h2>
-
-            <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="flex flex-wrap gap-3 mb-8">
-                {techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="inline-flex items-center px-4 py-2 rounded-lg border border-primary/30 bg-primary/10 text-primary text-sm font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="space-y-6 text-muted-foreground">
-                <div>
-                  <p className="text-primary font-semibold mb-2">Java Backend</p>
-                  <p>Robust data processing and ML model pipeline implementation</p>
-                </div>
-                <div>
-                  <p className="text-primary font-semibold mb-2">Python Libraries</p>
-                  <p>Scikit-learn for ML models, Pandas for data processing, Matplotlib/Seaborn for visualization</p>
-                </div>
-                <div>
-                  <p className="text-primary font-semibold mb-2">Data Integration</p>
-                  <p>Handling satellite imagery, sensor data, and multi-temporal environmental datasets</p>
-                </div>
+              <div className="data-row"><span className="data-row-label">Annual retreat</span><span className="data-row-val neg">1.4–2.1m/yr</span></div>
+              <div className="data-row"><span className="data-row-label">Elevation change</span><span className="data-row-val neg">−1–2m</span></div>
+              <div className="data-row"><span className="data-row-label">Blakeney accretion</span><span className="data-row-val pos">+0.8m</span></div>
+              <div className="data-row"><span className="data-row-label">NDVI 2000 → 2023</span><span className="data-row-val neg">0.45 → 0.39</span></div>
+              <div className="data-row"><span className="data-row-label">Wetland loss</span><span className="data-row-val neg">−10–15ha</span></div>
+              <div className="data-row"><span className="data-row-label">Study period</span><span className="data-row-val neutral">2000–2023</span></div>
+              <div className="data-ai-pill">
+                <div className="data-ai-text">🤖 AI risk: CRITICAL</div>
+                <div className="data-ai-text">Intervention: URGENT →</div>
               </div>
             </div>
           </div>
-        </section>
 
-        {/* Results Section */}
-        <section className="px-6 py-24 md:py-32">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-foreground mb-12">Results & Impact</h2>
+          <div className="float-card float-card-2">
+            <div className="float-label">Accretion Gain</div>
+            <div className="float-value green">+0.8m</div>
+            <div className="float-sub">Blakeney Point</div>
+          </div>
+        </div>
+      </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="rounded-2xl border border-primary/30 bg-primary/5 p-8">
-                <h3 className="text-lg font-semibold text-primary mb-3">Model Validation</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  AI model outputs aligned with published environmental studies, validating the system's accuracy and
-                  demonstrating practical utility for coastal management.
-                </p>
-              </div>
+      {/* Stats */}
+      <div className="stats reveal">
+        <div className="stat"><div className="stat-number warn"><span>1–2m</span></div><div className="stat-label">Annual cliff retreat at Happisburgh</div></div>
+        <div className="stat-divider"></div>
+        <div className="stat"><div className="stat-number"><span>4.3mm</span></div><div className="stat-label">Sea-level rise per year, relative</div></div>
+        <div className="stat-divider"></div>
+        <div className="stat"><div className="stat-number"><span>23yr</span></div><div className="stat-label">Study period 2000 to 2023</div></div>
+        <div className="stat-divider"></div>
+        <div className="stat"><div className="stat-number"><span>15ha</span></div><div className="stat-label">Wetland lost at Stiffkey &amp; Cley Marshes</div></div>
+      </div>
 
-              <div className="rounded-2xl border border-primary/30 bg-primary/5 p-8">
-                <h3 className="text-lg font-semibold text-primary mb-3">Actionable Insights</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Generated forecasts and trend analysis enabling planners to make informed decisions about coastal
-                  protection and urban development strategies.
-                </p>
-              </div>
+      {/* Findings */}
+      <section id="findings">
+        <div className="section-tag reveal">Key Findings</div>
+        <h2 className="reveal">The coast is<br />changing fast.</h2>
+        <p className="section-desc reveal">Satellite imagery, LiDAR elevation data, and NDVI vegetation analysis compared across 2000 and 2023 reveal four interconnected patterns of coastal change.</p>
 
-              <div className="rounded-2xl border border-primary/30 bg-primary/5 p-8">
-                <h3 className="text-lg font-semibold text-primary mb-3">Sustainability Impact</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Identified measurable erosion trends and vegetation changes informing conservation priorities and
-                  climate adaptation planning.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-primary/30 bg-primary/5 p-8">
-                <h3 className="text-lg font-semibold text-primary mb-3">Scalability</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  System architecture designed to handle expanding datasets and adapted for analysis of other coastal
-                  regions globally.
-                </p>
-              </div>
+        <div className="findings-layout reveal">
+          <div className="finding-block accent-block">
+            <div className="finding-num">01</div>
+            <div className="finding-title">Happisburgh &amp; Overstrand: Severe Shoreline Retreat</div>
+            <div className="finding-desc">Soft sedimentary cliffs of sand, silt, and clay have retreated 50–150 metres landward between 2000 and 2023. High-energy North Sea waves combined with increasing storm frequency make these cliffs perpetually vulnerable and rising sea levels mean waves reach further with each passing year.</div>
+            <div className="stat-chips">
+              <div className="stat-chip"><strong>50–150m</strong>Shoreline retreat</div>
+              <div className="stat-chip"><strong>1–2m</strong>Annual recession</div>
+              <div className="stat-chip"><strong>−2m</strong>Elevation lost</div>
             </div>
           </div>
-        </section>
-
-        {/* Learnings Section */}
-        <section className="px-6 py-24 md:py-32 bg-card/30">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-foreground mb-12">Key Learnings</h2>
-
-            <div className="rounded-2xl border border-border bg-card p-8">
-              <ul className="space-y-4">
-                <li className="flex items-start gap-4">
-                  <span className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  <span className="text-muted-foreground">
-                    <span className="text-primary font-semibold">Real-World Data Challenges:</span> Handling missing
-                    values, temporal alignment issues, and inconsistent data quality across multiple satellite sources.
-                  </span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  <span className="text-muted-foreground">
-                    <span className="text-primary font-semibold">Model Interpretability:</span> Translating complex AI
-                    outputs into actionable insights for non-technical environmental stakeholders and policymakers.
-                  </span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  <span className="text-muted-foreground">
-                    <span className="text-primary font-semibold">Domain Knowledge:</span> Importance of understanding
-                    coastal processes, climate metrics, and environmental science to build meaningful AI systems.
-                  </span>
-                </li>
-              </ul>
+          <div className="finding-block">
+            <div className="finding-num">02</div>
+            <div className="finding-title">Blakeney Point: Natural Accretion Building Resilience</div>
+            <div className="finding-desc">While erosion dominates the eastern stretch, tidal sediment transport at Blakeney Point has driven measurable shoreline expansion. New dune systems and mudflats are actively forming, increasing elevation and providing natural coastal defence against the very sea-level rise threatening other zones.</div>
+            <div className="stat-chips">
+              <div className="stat-chip"><strong>+0.5–1m</strong>Elevation gain</div>
+              <div className="stat-chip"><strong>Expanding</strong>Dune systems</div>
             </div>
           </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="px-6 py-24">
-          <div className="mx-auto max-w-2xl text-center rounded-2xl border border-border bg-card p-12">
-            <h3 className="text-2xl font-bold text-foreground mb-4">View the Code</h3>
-            <p className="text-muted-foreground mb-8">Explore the AI models and analysis code on GitHub</p>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-3 text-sm font-medium text-primary-foreground transition-all duration-200 hover:bg-primary-hover hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20"
-            >
-              View on GitHub
-              <ArrowLeft className="h-4 w-4 rotate-180" />
-            </a>
+          <div className="finding-block">
+            <div className="finding-num">03</div>
+            <div className="finding-title">NDVI Decline: Vegetation Health Deteriorating</div>
+            <div className="finding-desc">Normalised Difference Vegetation Index analysis shows a decline from 0.45 in 2000 to 0.39 in 2023 in the most affected marsh areas. Saltwater intrusion into Blakeney Freshes and periodic inundation events are weakening the salt marsh and dune vegetation that underpins biodiversity and erosion resistance.</div>
+            <div className="stat-chips">
+              <div className="stat-chip"><strong>0.45 → 0.39</strong>NDVI decline</div>
+              <div className="stat-chip"><strong>−10–15ha</strong>Wetland lost</div>
+            </div>
           </div>
-        </section>
-      </main>
+          <div className="finding-block">
+            <div className="finding-num">04</div>
+            <div className="finding-title">Sea-Level Rise Amplifying Every Other Process</div>
+            <div className="finding-desc">At ~4.3mm per year a combination of global sea-level rise and local land subsidence unique to East Anglia this factor extends wave reach further up soft cliffs, increases storm surge inundation of low-lying marshes, and erodes the region&apos;s natural flood buffer capacity with each passing season.</div>
+            <div className="stat-chips">
+              <div className="stat-chip"><strong>4.3mm/yr</strong>SLR rate</div>
+              <div className="stat-chip"><strong>1–3m ASL</strong>Vulnerable zones</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Coastal Processes */}
+      <section id="processes" className="processes-section">
+        <div className="section-tag reveal">Coastal Processes</div>
+        <h2 className="reveal">Three forces.<br />One coastline.</h2>
+        <p className="section-desc reveal">The North Norfolk Coast is shaped by three dominant processes operating simultaneously in some places pulling in opposite directions just 30km apart.</p>
+
+        <div className="process-grid reveal">
+          <div className="process-item">
+            <div className="process-accent"></div>
+            <div className="process-icon">🌊</div>
+            <div className="process-name">Erosion</div>
+            <div className="process-tag">Happisburgh · Overstrand · Cromer</div>
+            <div className="process-desc">Wave undercutting and mass movement strip soft sedimentary cliffs continuously. High-energy North Sea exposure leaves these formations permanently vulnerable and rising sea levels mean each storm surge reaches further inland than the last.</div>
+            <div className="process-numbers">
+              <div className="process-number"><strong>1–2m</strong>Annual retreat</div>
+              <div className="process-number"><strong>150m</strong>Max 2000–23</div>
+            </div>
+          </div>
+          <div className="process-item">
+            <div className="process-accent"></div>
+            <div className="process-icon">🏖️</div>
+            <div className="process-name">Accretion</div>
+            <div className="process-tag">Blakeney Point · Cley Marshes</div>
+            <div className="process-desc">In sheltered, low-energy environments, tidal currents deposit sand and silt to build new land. Growing dune systems and mudflats act as natural sea defences a self-reinforcing system as long as sediment supply from eroding sections remains adequate.</div>
+            <div className="process-numbers">
+              <div className="process-number"><strong>+1m</strong>Elevation gain</div>
+              <div className="process-number"><strong>New</strong>Dunes forming</div>
+            </div>
+          </div>
+          <div className="process-item">
+            <div className="process-accent"></div>
+            <div className="process-icon">📈</div>
+            <div className="process-name">Sea-Level Rise</div>
+            <div className="process-tag">Entire North Norfolk coastline</div>
+            <div className="process-desc">The multiplier effect SLR amplifies both erosion and flooding simultaneously. Low-lying marshlands face saltwater intrusion degrading vegetation; cliff areas face waves reaching higher with each surge. East Anglia&apos;s land subsidence compounds the global SLR rate.</div>
+            <div className="process-numbers">
+              <div className="process-number"><strong>4.3mm</strong>Per year</div>
+              <div className="process-number"><strong>+SLR</strong>Subsidence</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Prototype */}
+      <section id="ai" className="ai-section">
+        <div className="ai-grid">
+          <div className="ai-text reveal">
+            <div className="section-tag">AI Prototype</div>
+            <h2>Predicting<br />erosion with AI.</h2>
+            <p>As part of the RSK AI &amp; Environmental Innovation Challenge, I built an <strong>AI-powered erosion rate prediction prototype</strong> on top of the historical coastal data gathered in this study.</p>
+            <p>The tool takes location-specific inputs cliff material type, elevation, shoreline position, storm track proximity and uses a <strong>large language model via API</strong> to reason about projected erosion rates and flag high-risk zones for prioritised intervention.</p>
+            <p>Rather than replacing specialist environmental modelling, the prototype acts as a <strong>rapid triage tool</strong> helping analysts quickly identify which coastline sections warrant detailed survey attention, generating structured risk summaries for coastal management planning documents.</p>
+            <p>Built using <strong>Cursor</strong> and the <strong>OpenAI API</strong>, developed rapidly within the hackathon timeframe demonstrating how generative AI can accelerate environmental insight workflows without traditional ML infrastructure.</p>
+            <div className="chip-row">
+              <span className="chip hi">OpenAI API</span>
+              <span className="chip hi">Cursor</span>
+              <span className="chip hi">Python</span>
+              <span className="chip lo">Erosion Prediction</span>
+              <span className="chip lo">Risk Triage</span>
+              <span className="chip lo">Generative AI</span>
+            </div>
+          </div>
+
+          <div className="terminal reveal">
+            <div className="terminal-bar">
+              <div className="t-d r"></div><div className="t-d y"></div><div className="t-d g"></div>
+              <span className="terminal-name">erosion_predictor.py</span>
+            </div>
+            <div className="terminal-body">
+              <div><span className="tc"># RSK Coastal Erosion Prediction Prototype</span></div>
+              <div><span className="tc"># North Norfolk Coast · AI Innovation Challenge</span></div>
+              <span className="tblank"></span>
+              <div><span className="tprompt">INPUT</span> <span className="tout">location = <span className="tval">&quot;Happisburgh Cliff&quot;</span></span></div>
+              <div><span className="tprompt">INPUT</span> <span className="tout">cliff_material = <span className="tval">&quot;soft sedimentary&quot;</span></span></div>
+              <div><span className="tprompt">INPUT</span> <span className="tout">elevation_asl = <span className="tval">17.4m</span></span></div>
+              <div><span className="tprompt">INPUT</span> <span className="tout">storm_exposure = <span className="tval">&quot;HIGH&quot;</span></span></div>
+              <div><span className="tprompt">INPUT</span> <span className="tout">slr_rate = <span className="tval">4.3mm/yr</span></span></div>
+              <span className="tblank"></span>
+              <div><span className="twarn">⟶ Querying erosion model via LLM API...</span></div>
+              <span className="tblank"></span>
+              <div><span className="tok">✓ PREDICTION COMPLETE</span></div>
+              <span className="tblank"></span>
+              <div><span className="tout">Projected annual retreat: <span className="thi">1.4 – 2.1m / yr</span></span></div>
+              <div><span className="tout">Risk level: <span className="tval">CRITICAL</span></span></div>
+              <div><span className="tout">Time to infrastructure risk: <span className="thi">~8–12 years</span></span></div>
+              <span className="tblank"></span>
+              <div><span className="tok">✓ Intervention priority: HIGH</span></div>
+              <div><span className="tout">Action: Urgent survey + managed retreat</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact */}
+      <section id="impact">
+        <div className="section-tag reveal">Assessed Impacts</div>
+        <h2 className="reveal">Who it<br />affects.</h2>
+        <p className="section-desc reveal">Coastal change does not stop at the waterline the consequences cascade through ecosystems, infrastructure, and local communities across the region.</p>
+
+        <div className="impact-grid reveal">
+          <div className="impact-card">
+            <div className="impact-bar"></div>
+            <div className="impact-icon">🌿</div>
+            <div className="impact-title">Ecosystems</div>
+            <div className="impact-desc">Salt marshes, dunes and mudflats form critical habitat for migratory birds, fish nurseries, and rare coastal flora all under active threat from saltwater intrusion and flooding.</div>
+            <div className="impact-bullet">NDVI down 13% in key marsh zones since 2000</div>
+            <div className="impact-bullet">Saltwater intrusion degrading Cley &amp; Stiffkey habitats</div>
+            <div className="impact-bullet">Wetland loss reducing natural flood buffer capacity</div>
+            <div className="impact-bullet">Species richness declining as specialised habitats shrink</div>
+          </div>
+          <div className="impact-card">
+            <div className="impact-bar"></div>
+            <div className="impact-icon">🏗️</div>
+            <div className="impact-title">Infrastructure</div>
+            <div className="impact-desc">Cliff recession is actively threatening residential properties, roads, and public amenities in Happisburgh, Overstrand, and Wells-next-the-Sea.</div>
+            <div className="impact-bullet">Homes lost to cliff retreat no compensation policy</div>
+            <div className="impact-bullet">Coastal roads requiring rerouting and frequent repair</div>
+            <div className="impact-bullet">Sea walls and groynes incurring high maintenance costs</div>
+            <div className="impact-bullet">Flood risk rising for low-lying town centres</div>
+          </div>
+          <div className="impact-card">
+            <div className="impact-bar"></div>
+            <div className="impact-icon">🏘️</div>
+            <div className="impact-title">Communities</div>
+            <div className="impact-desc">Residents face displacement, reduced property values, and economic losses across tourism, agriculture, and local fisheries that depend on the coastal ecosystem.</div>
+            <div className="impact-bullet">Forced relocation in no-active-intervention zones</div>
+            <div className="impact-bullet">Tourism revenues threatened by habitat loss</div>
+            <div className="impact-bullet">Saltwater intrusion making farmland unsuitable</div>
+            <div className="impact-bullet">Public safety risks from sudden cliff collapse</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section id="process" className="timeline-section">
+        <div className="section-tag reveal">Research Process</div>
+        <h2 className="reveal">How it<br />was built.</h2>
+        <p className="section-desc reveal">From initial coastline scoping through to AI prototype development and impact assessment the full research and build process.</p>
+
+        <div className="timeline reveal">
+          <div className="timeline-item">
+            <div className="timeline-phase">Phase 1 Data Collection</div>
+            <div className="timeline-title">Satellite Imagery &amp; Historical Baseline</div>
+            <div className="timeline-desc">Used NASA Worldview to access and compare satellite imagery from 2000 and 2023 across the North Norfolk Coast. Identified key study sites Happisburgh, Overstrand, Blakeney Point, Cley Marshes, and Stiffkey and established historical shoreline baselines.</div>
+          </div>
+          <div className="timeline-item">
+            <div className="timeline-phase">Phase 2 Shoreline Analysis</div>
+            <div className="timeline-title">Shoreline Position &amp; Erosion Mapping</div>
+            <div className="timeline-desc">Compared 2000 vs 2023 imagery to quantify shoreline retreat in erosion hotspots and expansion in accretion zones. Identified the 50–150m retreat at Happisburgh and the measurable dune growth at Blakeney Point.</div>
+          </div>
+          <div className="timeline-item">
+            <div className="timeline-phase">Phase 3 Environmental Analysis</div>
+            <div className="timeline-title">NDVI Vegetation &amp; Elevation Data</div>
+            <div className="timeline-desc">Conducted NDVI analysis to assess vegetation health changes in key marshland areas, documenting the 0.45→0.39 decline. Analysed LiDAR elevation data from the Environment Agency to map 1–2m height losses in erosion zones and 0.5–1m gains in accretion zones.</div>
+          </div>
+          <div className="timeline-item">
+            <div className="timeline-phase">Phase 4 AI Development</div>
+            <div className="timeline-title">Erosion Prediction Prototype</div>
+            <div className="timeline-desc">Built the AI-powered erosion rate prediction tool using Cursor and the OpenAI API. Designed the prompt architecture to take coastal input parameters and return structured risk assessments and intervention priorities demonstrating rapid GenAI prototyping within the hackathon timeframe.</div>
+          </div>
+          <div className="timeline-item">
+            <div className="timeline-phase">Phase 5 Reporting</div>
+            <div className="timeline-title">Impact Assessment &amp; Recommendations</div>
+            <div className="timeline-desc">Synthesised findings into ecosystem, infrastructure, and community impact assessments. Translated research into management recommendations balancing ecological preservation with community resilience the core challenge of North Norfolk coastal management.</div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div className="footer-left">
+          <h3>Alae Ibnoucheikh</h3>
+          <p>MEng Computer Science · University of Portsmouth</p>
+          <p style={{ marginTop: '4px', fontSize: '12px', color: '#444' }}>RSK Group · AI &amp; Environmental Innovation Challenge</p>
+        </div>
+        <div className="footer-links">
+          <a href="https://www.linkedin.com/in/alae-ibnou-cheikh-a9994b334/" target="_blank" rel="noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:ibnoucheikhalae@gmail.com">✉ Contact</a>
+        </div>
+      </footer>
     </>
-  )
+  );
 }
