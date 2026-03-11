@@ -1,142 +1,100 @@
-"use client"
+'use client';
 
-import { useState } from "react"
-import Link from "next/link"
-import { ArrowRight, Github } from "lucide-react"
-import { projects, categories } from "@/data/projects"
-import type { ProjectCategory } from "@/data/projects"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-
-type Filter = "All" | ProjectCategory
+import { useEffect } from 'react';
+import Link from 'next/link';
+import { projects } from '@/data/projects';
+import './projects.css';
 
 export default function ProjectsPage() {
-  const [active, setActive] = useState<Filter>("All")
 
-  const filtered =
-    active === "All"
-      ? projects
-      : projects.filter((p) => p.category === active)
+  useEffect(() => {
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    const onMove = (e: MouseEvent) => {
+      mx = e.clientX; my = e.clientY;
+      if (cursor) { cursor.style.left = (mx - 6) + 'px'; cursor.style.top = (my - 6) + 'px'; }
+    };
+    document.addEventListener('mousemove', onMove);
+    const animRing = () => {
+      rx += (mx - rx - 20) * 0.12; ry += (my - ry - 20) * 0.12;
+      if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
+      requestAnimationFrame(animRing);
+    };
+    animRing();
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 60);
+      });
+    }, { threshold: 0.06 });
+    reveals.forEach(r => obs.observe(r));
+    return () => { document.removeEventListener('mousemove', onMove); obs.disconnect(); };
+  }, []);
 
-  const filters: Filter[] = ["All", ...categories]
+  const filtered = projects;
 
   return (
     <>
-      <Navbar />
-      <main className="px-6 pt-28 pb-24">
-        <div className="mx-auto max-w-6xl">
-          {/* Header */}
-          <div className="flex flex-col gap-4">
-            <p className="text-sm font-medium uppercase tracking-widest text-primary">
-              Portfolio
-            </p>
-            <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl text-balance">
-              All Projects
-            </h1>
-            <p className="max-w-2xl text-muted-foreground leading-relaxed">
-              A collection of academic and personal projects spanning AI, mobile
-              development, networking, and database design.
-            </p>
-          </div>
+      <div className="cursor" id="cursor"></div>
+      <div className="cursor-ring" id="cursorRing"></div>
 
-          {/* Filter chips */}
-          <div className="mt-10 flex flex-wrap gap-2">
-            {filters.map((f) => (
-              <button
-                key={f}
-                onClick={() => setActive(f)}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
-                  active === f
-                    ? "bg-primary text-primary-foreground"
-                    : "border border-primary/50 bg-transparent text-primary hover:border-primary hover:bg-primary/5"
-                }`}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
+      <nav className="proj-nav">
+        <a href="/" className="nav-home">← Back to Home</a>
+      </nav>
 
-          {/* Grid */}
-          <div className="mt-10 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((project) => (
-              <article
-                key={project.slug}
-                className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card shadow-sm shadow-black/20 p-6 transition-all duration-200 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(99,102,241,0.12)] hover:border-primary/60 focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-background"
-              >
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="absolute inset-0 z-0 rounded-2xl focus:outline-none"
-                  aria-label={`View case study for ${project.title}`}
-                  tabIndex={-1}
-                />
+      <div className="proj-hero reveal">
+        <div className="proj-hero-tag">Portfolio · Selected Works</div>
+        <h1>All<br /><span>Projects.</span></h1>
+        <p>Built from scratch. Spanning software, data, AI, and infrastructure.</p>
+      </div>
 
-                <div className="relative z-10 flex flex-col gap-3">
-                  <div className="flex items-center gap-2">
-                    <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-medium text-primary">
-                      {project.category}
-                    </span>
+      <div className="proj-grid">
+          {filtered.map((project, i) => (
+            <article key={project.slug} className="proj-card reveal">
+              <div className="proj-title">{project.title}</div>
+              <p className="proj-summary">{project.summary}</p>
+              <div className="proj-highlights">
+                {project.highlights.map((h, j) => (
+                  <div key={j} className="proj-highlight">
+                    <div className="proj-highlight-dot"></div>
+                    <span>{h}</span>
                   </div>
-                  <h2 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h2>
-                  <p className="text-sm leading-relaxed text-muted-foreground line-clamp-2">
-                    {project.summary}
-                  </p>
-                </div>
-
-                <div className="relative z-10 mt-6 flex flex-col gap-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-md bg-secondary px-3 py-1 text-xs font-medium text-foreground"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="relative z-20 inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-medium text-primary-foreground transition-all duration-200 hover:bg-primary-hover hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-                    >
-                      Case Study
-                      <ArrowRight className="h-3 w-3" />
-                    </Link>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`View ${project.title} on GitHub`}
-                      className="relative z-20 inline-flex items-center gap-1.5 rounded-lg border border-primary/50 bg-transparent px-4 py-2 text-xs font-medium text-primary transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:scale-[1.03] hover:shadow-md hover:shadow-primary/10 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-                    >
-                      <Github className="h-3.5 w-3.5" />
-                      GitHub
-                    </a>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {/* Empty state */}
-          {filtered.length === 0 && (
-            <div className="mt-16 flex flex-col items-center gap-4 text-center">
-              <p className="text-muted-foreground">
-                No projects found in this category.
-              </p>
-              <button
-                onClick={() => setActive("All")}
-                className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-              >
-                Clear filter
-              </button>
-            </div>
-          )}
+                ))}
+              </div>
+              <div className="proj-tech-row">
+                {project.techStack.map(t => (
+                  <span key={t} className="proj-tech">{t}</span>
+                ))}
+              </div>
+              <div className="proj-cta-row">
+                <Link href={`/projects/${project.slug}`} className="btn-case">
+                  Case Study
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </Link>
+                {project.githubUrl !== "https://github.com" && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-gh">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  GitHub
+                </a>}
+              </div>
+            </article>
+          ))}
         </div>
-      </main>
-      <Footer />
+
+      <footer>
+        <div className="proj-footer">
+          <div>
+            <div className="proj-footer-brand">Alae Ibnoucheikh</div>
+            <div className="proj-footer-copy">MEng Computer Science · University of Portsmouth</div>
+          </div>
+          <div className="proj-footer-links">
+            <a href="https://www.linkedin.com/in/alae-ibnou-cheikh-a9994b334/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="mailto:ibnoucheikhalae@gmail.com">Contact</a>
+            <a href="/">Home</a>
+          </div>
+        </div>
+      </footer>
     </>
-  )
+  );
 }
+
