@@ -24,7 +24,6 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: 'Alae Ibnou Cheikh | CS Student & AI Developer',
   description: 'Portfolio of Alae Ibnou Cheikh - Computer Science student specialising in AI and Data Analysis. Building data-driven solutions and digital products.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
