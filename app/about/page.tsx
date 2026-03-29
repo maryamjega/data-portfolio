@@ -46,7 +46,7 @@ export default function AboutPage() {
                 color: "#111",
               }}
             >
-              I turn data into /> decisions that matter.
+              I turn data into <br/> decisions that matter.
             </h1>
             <p
               className="mt-5 text-base"
