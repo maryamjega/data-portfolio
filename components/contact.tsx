@@ -5,8 +5,8 @@ import { AnimatedItem } from "@/components/animated-section"
 const contactLinks = [
   {
     label: "Email",
-    value: "ibnoucheikhalae@gmail.com",
-    href: "mailto:ibnoucheikhalae@gmail.com",
+    value: "maryamjega@outlook.com",
+    href: "mailto:maryamjega@outlook.com",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <rect x="2" y="4" width="20" height="16" rx="3" />
@@ -96,7 +96,7 @@ export function Contact() {
             className="mb-16 mx-auto"
             style={{ color: "#555", maxWidth: 480, lineHeight: "1.7", fontSize: 15 }}
           >
-            Open to internships, collaborations, and interesting problems. If you have something worth building I&apos;m in.
+            Open to full-time opportunities and select collaborations. If you&apos;re building something meaningful, I&apos;d love to connect.
           </p>
         </AnimatedItem>
 
