@@ -41,7 +41,7 @@ export default function AboutPage() {
               className="mt-4 font-black leading-[1.05]"
               style={{
                 fontFamily: "var(--font-syne,'Syne'),sans-serif",
-                fontSize: "clamp(40px,6vw,72px)",
+                fontSize: "clamp(38px,6vw,68px)",
                 letterSpacing: "-2.5px",
                 color: "#111",
               }}
