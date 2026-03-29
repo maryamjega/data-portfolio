@@ -8,7 +8,7 @@ import { PolaroidStack } from "@/components/polaroid-stack"
 export const metadata: Metadata = {
   title: "About | Maryam Bashir Jega",
   description:
-    "Learn more about Maryam Bashir Jega - a Data Scientist passionate about AI, data analysis, tennis, and building impact-driven technology.",
+    "Learn more about Maryam Bashir Jega - a Data Analyst passionate about AI, data scientist, tennis, and building impact-driven technology.",
 }
 
 export default function AboutPage() {
