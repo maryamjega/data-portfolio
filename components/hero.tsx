@@ -26,7 +26,7 @@ export function Hero() {
           whiteSpace: "nowrap",
         }}
       >
-        IBNOUCHEIKH
+        BASHIR
       </div>
 
       {/* Content grid */}
@@ -84,7 +84,7 @@ export function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              Available for Internships 2026
+              Looking for Full-Time Oppurtunities 
             </span>
           </div>
 
@@ -101,7 +101,7 @@ export function Hero() {
               animationDelay: "0.08s",
             }}
           >
-            <span style={{ display: "block", color: "#111010" }}>Alae</span>
+            <span style={{ display: "block", color: "#111010" }}>Maryam</span>
             {/* Ibnou stroke outline with pink fill sweep */}
             <span style={{ display: "block", position: "relative", lineHeight: "inherit" }}>
               <span
@@ -111,7 +111,7 @@ export function Hero() {
                   display: "block",
                 }}
               >
-                Ibnou
+                Bashir
               </span>
               <span
                 style={{
@@ -130,10 +130,10 @@ export function Hero() {
                   letterSpacing: "inherit",
                 }}
               >
-                Ibnou
+                Bashir
               </span>
             </span>
-            <span style={{ display: "block", color: "#111010" }}>Cheikh</span>
+            <span style={{ display: "block", color: "#111010" }}>Jega</span>
           </h1>
 
           {/* ASCII tagline */}
@@ -217,7 +217,7 @@ export function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              AI · Data · Software
+              AI · Data · Strategy
             </span>
             <span style={{ color: "#bbb" }}>{"*/"}</span>
           </div>
