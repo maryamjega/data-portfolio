@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { AnimatedItem } from "@/components/animated-section"
 
-const interests = ["AI Research", "Sustainability", "Fintech", "Continuous Learning"]
+const interests = ["AI & Intelligent Systems", "Business & Financial Analytics", "Finance", "Continuous Grwoth"]
 
 export function About() {
   return (
