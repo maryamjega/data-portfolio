@@ -48,7 +48,7 @@ export function About() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/profile1.JPG"
-                  alt="Alae Ibnoucheikh"
+                  alt="Maryam Bashir Jega"
                   style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                   onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }}
                 />
@@ -62,7 +62,7 @@ export function About() {
                   textTransform: "uppercase",
                 }}
               >
-                Alae Ibnoucheikh
+                Maryam Bashir Jega
               </span>
             </div>
 
@@ -78,9 +78,9 @@ export function About() {
               color: "#111",
             }}
           >
-            Builder.<br />
-            Analyst.<br />
-            <span style={{ color: "#555" }}>Thinker.</span>
+            Curious.<br />
+            Analytical.<br />
+            <span style={{ color: "#555" }}>Intentional.</span>
           </div>
 
           <div
