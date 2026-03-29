@@ -46,13 +46,13 @@ export default function AboutPage() {
                 color: "#111",
               }}
             >
-              I build things<br />that matter.
+              I turn data into /> decisions that matter.
             </h1>
             <p
               className="mt-5 text-base"
               style={{ color: "#777", fontStyle: "italic", letterSpacing: "0.01em" }}
             >
-              Then I run half-marathons to recover.
+              On and off the court.
             </p>
           </div>
         </div>
