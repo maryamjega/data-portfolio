@@ -6,9 +6,9 @@ import { Footer } from "@/components/footer"
 import { PolaroidStack } from "@/components/polaroid-stack"
 
 export const metadata: Metadata = {
-  title: "About | Alae Ibnou Cheikh",
+  title: "About | Maryam Bashir Jega",
   description:
-    "Learn more about Alae Ibnou Cheikh - a Computer Science student passionate about AI, data analysis, running, and building impact-driven technology.",
+    "Learn more about Maryam Bashir Jega - a Data Scientist passionate about AI, data analysis, tennis, and building impact-driven technology.",
 }
 
 export default function AboutPage() {
