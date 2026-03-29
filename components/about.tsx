@@ -91,18 +91,16 @@ export function About() {
             }}
           >
             <span style={{ color: "#bbb", marginRight: 8 }}>{"// "}</span>
-            The projects on this page were not assignments. They were problems I chose to solve.
+           Each project started with a problem I wanted to understand and improve.
           </div>
 
           <p className="text-sm leading-[1.9] mb-4" style={{ color: "#555" }}>
-            I am a <span style={{ color: "#111", fontWeight: 600 }}>Computer Science MEng student</span> who builds things that work in the real world, not just in coursework submissions. From a Flutter app with 201 passing tests to an AI erosion prediction tool built at an environmental challenge, I ship.
+            I am a <span style={{ color: "#111", fontWeight: 600 }}>Data Analyst</span> with a background in Data Science and AI, focused on building solutions that work in real-world settings. From analytics dashboards to data-driven tools, I focus on turning ideas into something usable, practical, and impactful.
           </p>
           <p className="text-sm leading-[1.9] mb-4" style={{ color: "#555" }}>
-            I am drawn to the places where technology intersects with something that matters: <span style={{ color: "#111", fontWeight: 600 }}>sustainability data</span> that changes how we protect coastlines, <span style={{ color: "#111", fontWeight: 600 }}>financial tools</span> that reach more people, <span style={{ color: "#111", fontWeight: 600 }}>AI systems</span> that surface the right insight at the right moment.
-          </p>
+           I’m drawn to the intersection of <span style={{ color: "#111", fontWeight: 600 }}>data, technology, and decision-making</span> whether that’s improving business performance, uncovering meaningful insights, or building systems that surface the right information at the right time.
           <p className="text-sm leading-[1.9] mb-6" style={{ color: "#555" }}>
-            Beyond the code, I run half-marathons, speak four languages, and have sat across the table from teams at <span style={{ color: "#111", fontWeight: 600 }}>J.P. Morgan</span> and <span style={{ color: "#111", fontWeight: 600 }}>IBM</span>. I bring the same discipline to all three.
-          </p>
+            Beyond the work itself, I stay disciplined through sport, continue learning across domains, have worked with teams at <span style={{ color: "#111", fontWeight: 600 }}> FedEx </span> and  have completed programs such as the <span style={{ color: "#111", fontWeight: 600 }}>McKinsey Forward Program</span>.I bring that same mindset of consistency and growth into everything I build.
 
           {/* Interest pills */}
           <div className="flex flex-wrap gap-[7px] mb-8">
