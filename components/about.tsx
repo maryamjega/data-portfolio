@@ -99,8 +99,10 @@ export function About() {
           </p>
           <p className="text-sm leading-[1.9] mb-4" style={{ color: "#555" }}>
            I’m drawn to the intersection of <span style={{ color: "#111", fontWeight: 600 }}>data, technology, and decision-making</span> whether that’s improving business performance, uncovering meaningful insights, or building systems that surface the right information at the right time.
+          </p>
           <p className="text-sm leading-[1.9] mb-6" style={{ color: "#555" }}>
-            Beyond the work itself, I stay disciplined through sport, continue learning across domains, have worked with teams at <span style={{ color: "#111", fontWeight: 600 }}> FedEx </span> and  have completed programs such as the <span style={{ color: "#111", fontWeight: 600 }}>McKinsey Forward Program</span>.I bring that same mindset of consistency and growth into everything I build.
+            Beyond the work itself, I stay disciplined through sport, continue learning across domains, have worked with teams at <span style={{ color: "#111", fontWeight: 600 }}> FedEx </span> and  have completed programs such as the <span style={{ color: "#111", fontWeight: 600 }}>McKinsey Forward Program. </span> I bring that same mindset of consistency and growth into everything I build.
+          </p>
 
           {/* Interest pills */}
           <div className="flex flex-wrap gap-[7px] mb-8">
