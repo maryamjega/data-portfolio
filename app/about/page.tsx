@@ -74,7 +74,7 @@ export default function AboutPage() {
                 paddingLeft: 24,
               }}
             >
-              I build things that work, document things that last,<br />and learn everything in between.
+              I make sense of data, improve what already exists, <br />and keep growing along the way.
             </blockquote>
             <div className="flex flex-col gap-5 text-sm leading-[1.9]" style={{ color: "#555" }}>
               <p>
