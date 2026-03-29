@@ -78,10 +78,10 @@ export default function AboutPage() {
             </blockquote>
             <div className="flex flex-col gap-5 text-sm leading-[1.9]" style={{ color: "#555" }}>
               <p>
-                I am a <span style={{ color: "#111", fontWeight: 600 }}>Computer Science MEng student</span> with a deep interest in artificial intelligence, data analysis, and building technology that creates real impact. What drives me is not the technical challenge alone, but the possibility of using these tools to solve problems that actually matter whether that means analysing coastal erosion data for environmental sustainability or prototyping predictive systems for industry clients.
+                I am a <span style={{ color: "#111", fontWeight: 600 }}>Data Analyst</span> with a background in Data Science, with a strong interest in AI, analytics, and building solutions that create real impact. What drives me is not just the technical challenge, but the opportunity to use data to solve problems that actually matter — whether that’s improving business performance, uncovering insights, or supporting better decision-making.
               </p>
               <p>
-                I am most alive in the space where a hard technical problem connects to something bigger than the code itself. That is the work I want to do, and the engineer I am becoming.
+                I am most engaged in the space where technical work connects to real-world outcomes. That is the kind of work I want to do, and the direction I am continuing to grow in.
               </p>
             </div>
           </div>
