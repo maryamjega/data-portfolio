@@ -35,7 +35,7 @@ export default function AboutPage() {
               className="mt-8 text-xs font-semibold uppercase tracking-[0.18em]"
               style={{ color: "#aaa", fontFamily: "var(--font-ibm-plex-mono,'IBM Plex Mono'),monospace" }}
             >
-              Alae Ibnoucheikh
+              Maryam Bashir Jega
             </p>
             <h1
               className="mt-4 font-black leading-[1.05]"
