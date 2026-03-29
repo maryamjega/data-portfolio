@@ -4,16 +4,16 @@ import { AnimatedItem } from "@/components/animated-section"
 
 const timeline = [
   {
-    period: "Nov 2025",
-    company: "J.P. Morgan",
-    role: "Market Risk Insight Week",
-    desc: "Analysed simulated trading portfolios, evaluated market risk exposure, and presented data-driven findings to stakeholders.",
-    tag: "Finance · Risk",
+    period: "Apr 2025 - Present",
+    company: "FedEx",
+    role: "Sales and Customer Analytics Intern",
+    desc: "Analyzed customer and sales data, identified growth opportunities, and built dashboards to support data-driven decision-making across teams.",
+    tag: "Analytics · Dashboard",
   },
   {
-    period: "Spring 2025",
-    company: "IBM",
-    role: "Consulting Insight Week",
+    period: "Sep 2024 - Dec 2024",
+    company: "Kitopi",
+    role: "Financial Planning and Analysis",
     desc: "Worked on digital transformation case simulations and presented AI-augmented business solutions.",
     tag: "AI · Consulting",
   },
