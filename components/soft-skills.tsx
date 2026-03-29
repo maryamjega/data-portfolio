@@ -4,12 +4,12 @@ import { AnimatedItem } from "@/components/animated-section"
 
 const cards = [
   {
-    title: "Rapid Prototyping",
-    desc: "Turning ideas to working demos fast from concept to functional prototype in days.",
+    title: "Creative Problem Solving",
+    desc: "Designing and building thoughtful solutions by combining data, intuition, and experimentation.",
   },
   {
     title: "Communication",
-    desc: "Translating technical complexity into clear narratives for any audience.",
+    desc: "Framing data and technical insights in a way that drives clear business decisions.",
   },
   {
     title: "Collaboration",
@@ -17,15 +17,15 @@ const cards = [
   },
   {
     title: "Analytical Thinking",
-    desc: "Decomposing ambiguous problems into structured, solvable sub-problems.",
+    desc: "Breaking down complex problems into structured approaches and actionable insights.",
   },
   {
-    title: "Self-Driven Learning",
-    desc: "Independently mastering new domains from Flutter to AI APIs through building.",
+    title: "Adaptability",
+    desc: "Quickly learning and applying new tools, concepts, and technologies in evolving environments.",
   },
   {
-    title: "Multilingual",
-    desc: "Arabic, Darija, French, English fluently Spanish conversationally. Bridges cultural gaps.",
+    title: "Cross-Cultural Communication",
+    desc: "Communicating effectively across different cultures and backgrounds, supported by fluency in multiple languages.",
   },
 ]
 
