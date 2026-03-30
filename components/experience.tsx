@@ -20,7 +20,7 @@ const timeline = [
   {
     period: "Sep 2024 - Dec 2024",
     company: "Kitopi",
-    role: "Financial Planning and Analysis",
+    role: "Financial Planning and Analysis Intern",
     desc: "Worked with financial and operational data, supported forecasting, and delivered insights to improve performance and decision-making.",
     tag: "Finance · Strategy",
   },
@@ -41,7 +41,7 @@ const timeline = [
   {
     period: "Feb 2024 - Feb 2025",
     company: "Unipreneur",
-    role: "Marketing Manager",
+    role: "Youth Ambassador | Partnerships",
     desc: "Led multi-channel campaigns to boost visibility of social entrepreneurship initiatives and drove cross-team engagement.",
     tag: "Leadership · Marketing",
   },
