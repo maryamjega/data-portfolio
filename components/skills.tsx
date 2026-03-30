@@ -30,14 +30,14 @@ const skillCards = [
     ],
   },
   {
-    lbl: "Frameworks",
-    title: "Mobile and Cloud",
+    lbl: "Analytics",
+    title: "Dashboarding & Reporting",
     items: [
-      { text: "Flutter",           hi: true, hi2: true },
-      { text: "Firebase",          hi: true, hi2: true },
-      { text: "Google Sign-In",    hi: false },
-      { text: "Apple Sign-In",     hi: false },
-      { text: "SharedPreferences", hi: false },
+      { text: "Excel",           hi: true, hi2: true },
+      { text: "Power BI",        hi: true, hi2: true },
+      { text: "Power Query",    hi: false },
+      { text: "DAX",            hi: false },
+      { text: "Power Automate", hi: false },
     ],
   },
   {
