@@ -6,17 +6,17 @@ import { AnimatedItem } from "@/components/animated-section"
 const cardData = [
   {
     num: "01",
-    cat: "Mobile · Full-Stack",
+    cat: "Analytics · Market Intelligence",
     href: "/projects/union-shop-ecommerce",
-    name: "Union Shop",
-    desc: "Flutter e-commerce app for Portsmouth Student Union with full auth, real-time cart, and merchandise personalisation.",
+    name: "Job Market Analysis",
+    desc: "Analyzed job market data (with a focus on data roles) to see how skills connect to job titles, which industries/companies are leading, and pulled out some key recommendations.",
     highlights: [
       "201 passing tests across unit, widget and integration layers",
       "Email, Google, and Apple Sign-In authentication",
       "Real-time Firestore cart and order management",
     ],
-    chips: ["Flutter", "Firebase", "Dart"],
-    slug: "union-shop-ecommerce",
+    chips: ["Power BI", "Dashboards", "Reporting"],
+    slug: "job-market-analysis",
     featured: true,
   },
   {
