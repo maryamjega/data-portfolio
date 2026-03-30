@@ -85,8 +85,8 @@ export function Contact() {
               letterSpacing: "-2.5px",
             }}
           >
-            Let&apos;s build something{" "}
-            <span style={{ color: "#111010" }}>great.</span>
+            Let&apos;s work on something meaningful{" "}
+            <span style={{ color: "#111010" }}>together.</span>
           </h2>
         </AnimatedItem>
 
