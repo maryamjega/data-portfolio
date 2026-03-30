@@ -81,7 +81,7 @@ export function Contact() {
             className="font-black mb-6 leading-none"
             style={{
               fontFamily: "var(--font-syne,'Syne'),sans-serif",
-              fontSize: "clamp(38px,5vw,68px)",
+              fontSize: "clamp(32px,5vw,63px)",
               letterSpacing: "-2.5px",
             }}
           >
