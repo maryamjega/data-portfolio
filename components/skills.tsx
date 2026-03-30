@@ -7,7 +7,7 @@ const skillCards = [
     lbl: "Languages",
     title: "Programming",
     items: [
-      { text: "Python((Pandas, NumPy, Matplotlib)",      hi: true },
+      { text: "Python(Pandas, NumPy, Matplotlib)",      hi: true },
       { text: "R",        hi: true },
       { text: "SQL",        hi: false },
     ],
