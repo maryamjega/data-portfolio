@@ -3,9 +3,9 @@
 import { useState } from "react"
 
 const marqueeSkills = [
-  "Python", "Flutter", "Dart", "PostgreSQL", "Firebase", "OpenAI API",
-  "Generative AI", "Prompt Engineering", "Java", "SQL", "Cursor",
-  "Cisco Networking", "HTML · CSS · JS", "Data Modelling", "GitHub",
+  "Python", "R", "SQL", "PostgreSQL", "BiqQuery", "OpenAI API",
+  "Generative AI", "Prompt Engineering", "SQL", "Cursor", "Advanced Excel"
+  "Cisco Networking", "Pandas · NumPy · Matpltlib", "Data Modelling", "GitHub",
 ]
 
 const _skills_unused = [
