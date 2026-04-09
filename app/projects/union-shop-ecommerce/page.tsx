@@ -91,33 +91,33 @@ export default function UnionShopPage() {
           <div className="hero-content">
             <div className="hero-label reveal-item">
               <span className="label-dot"></span>
-              E-Commerce Mobile Platform
+             Business Intelligence Dashboard
             </div>
 
             <h1 className="hero-title reveal-item">
-              Union<span className="title-accent">Shop</span>
+              Analyzing Job<span className="title-accent">Market Data</span>
               <span className="title-period">.</span>
             </h1>
 
             <p className="hero-subtext reveal-item">
-              A production-grade e-commerce mobile application built for the University of Portsmouth Student Union.
-              Full authentication, real-time cart management, custom merchandise personalisation, and cloud-synced user
-              profiles across iOS and Android.
+              Analyzed real-world job market data to uncover in-demand skills across data roles. 
+              Cleaned and transformed datasets using Power Query, built analytical models with DAX, 
+              and developed an interactive dashboard to support recruitment and hiring decisions.
             </p>
 
             {/* Stats pills */}
             <div className="hero-stats reveal-item">
               <div className="stat-pill">
-                <span className="stat-number">201+</span>
-                <span className="stat-name">Tests</span>
+                <span className="stat-number">10+</span>
+                <span className="stat-name">Visuals</span>
               </div>
               <div className="stat-pill">
-                <span className="stat-number">15+</span>
-                <span className="stat-name">Screens</span>
+                <span className="stat-number">8</span>
+                <span className="stat-name">Data Roles</span>
               </div>
               <div className="stat-pill">
-                <span className="stat-number">3×</span>
-                <span className="stat-name">Auth Methods</span>
+                <span className="stat-number">10</span>
+                <span className="stat-name">Dashboards</span>
               </div>
             </div>
 
