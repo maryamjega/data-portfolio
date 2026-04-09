@@ -116,8 +116,8 @@ export default function UnionShopPage() {
                 <span className="stat-name">Data Roles</span>
               </div>
               <div className="stat-pill">
-                <span className="stat-number">10</span>
-                <span className="stat-name">Dashboards</span>
+                <span className="stat-number">50</span>
+                <span className="stat-name">Skills</span>
               </div>
             </div>
 
