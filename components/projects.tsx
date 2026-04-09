@@ -11,9 +11,9 @@ const cardData = [
     name: "Job Market Analysis",
     desc: "Analyzed job market data (with a focus on data roles) to see how skills connect to job titles, which industries/companies are leading, and pulled out some key recommendations.",
     highlights: [
-      "201 passing tests across unit, widget and integration layers",
-      "Email, Google, and Apple Sign-In authentication",
-      "Real-time Firestore cart and order management",
+      "Cleaned and transformed real-world job posting data using Power Query",
+      "Built analytical models with DAX to identify in-demand skills and role trends",
+      "Designed an interactive dashboard to support recruitment and hiring decisions",
     ],
     chips: ["Power BI", "Dashboards", "Reporting"],
     slug: "job-market-analysis",
