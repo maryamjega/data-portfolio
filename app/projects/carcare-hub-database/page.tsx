@@ -155,8 +155,8 @@ export default function CarCareHub() {
 
         <div className="schema-grid reveal">
           {[
-            { name: 'Customers', fields: [{ label: 'cust_id', badge: 'PK', type: 'pk' }, { label: 'cust_fname', badge: 'VARCHAR(50)' }, { label: 'cust_email', badge: 'UNIQUE' }, { label: 'cust_phone_num', badge: 'UNIQUE' }, { label: 'cust_country', badge: 'VARCHAR(30)' }] },
-            { name: 'Cars', fields: [{ label: 'car_id', badge: 'PK', type: 'pk' }, { label: 'cust_id', badge: 'FK', type: 'fk' }, { label: 'car_model_id', badge: 'FK', type: 'fk' }, { label: 'car_condition', badge: 'ENUM' }, { label: 'car_plate_number', badge: 'UNIQUE' }] },
+            { name: 'Customers', fields: [{ label: 'customer_id', badge: 'PK', type: 'pk' }, { label: 'customer_unique_id', badge: 'UNIQUE' }, { label: 'cust_zip_code_prefix', badge: 'VARCHAR(10)' }, { label: 'customer_state', badge: 'CHAR(2)' }, ] },
+            { name: 'Orders', fields: [{ label: 'order_id', badge: 'PK', type: 'pk' }, { label: 'customer_id', badge: 'FK', type: 'fk' }, { label: 'order_status', badge: 'VARCHAR(20)'}, { label: 'order_timestamp', badge: 'DATETIME' }, { label: 'order_approved_at', badge: 'DATETIME' }, { label: 'order_delivered_carrier_date', badge: 'DATETIME' }, { label: 'order_delivered_customer_date', badge: 'DATETIME' }, { label: 'order_approved_at', badge: 'DATETIME' }] },
             { name: 'Staff', fields: [{ label: 'staff_id', badge: 'PK', type: 'pk' }, { label: 'dep_id', badge: 'FK', type: 'fk' }, { label: 'staff_email', badge: 'UNIQUE' }, { label: 'staff_manager', badge: 'BOOLEAN' }, { label: 'staff_country', badge: 'VARCHAR(30)' }] },
             { name: 'Service Appointments', fields: [{ label: 'serv_app_id', badge: 'PK', type: 'pk' }, { label: 'car_id', badge: 'FK', type: 'fk' }, { label: 'serv_app_status', badge: 'ENUM' }, { label: 'serv_app_date', badge: 'DATE' }, { label: 'serv_app_time', badge: 'CHECK 09–17' }] },
             { name: 'Departments', fields: [{ label: 'dep_id', badge: 'PK', type: 'pk' }, { label: 'dep_name', badge: 'UNIQUE' }, { label: 'dep_type', badge: 'ENUM' }] },
