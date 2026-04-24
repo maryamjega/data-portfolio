@@ -201,7 +201,7 @@ export default function CarCareHub() {
           </div>
           <div className="feature-block">
             <div className="feature-num">03</div>
-            <div className="feature-tag">Analytical Design/div>
+            <div className="feature-tag">Analytical Design</div>
             <div className="feature-title">Order-level and item-level data split for accuracy</div>
             <div className="feature-desc">Distinct views of orders and items prevent double-counting and allow precise revenue, product, and customer analysis.</div>
           </div>
