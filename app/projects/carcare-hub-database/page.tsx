@@ -111,7 +111,7 @@ export default function CarCareHub() {
               </div>
               <div className="db-arrow">↕</div>
               <div className="db-table">
-                <div className="db-table-head">Order_ID</div>
+                <div className="db-table-head">Orders</div>
                 <div className="db-row"><span className="pk">order_id</span><span className="type">PK · SERIAL</span></div>
                 <div className="db-row"><span className="fk">customer_id</span><span className="type">FK → Customers</span></div>
                 <div className="db-row"><span>order_status</span><span className="type">VARCHAR(20)</span></div>
@@ -162,8 +162,8 @@ export default function CarCareHub() {
             { name: 'Reviews', fields: [{ label: 'review_id', badge: 'PK', type: 'pk' }, { label: 'order_id', badge: 'FK', type: 'fk' }, { label: 'review_score', badge: 'TINYINT' }, { label: 'review_comment_title', badge: 'VARCHAR(255)' }, { label: 'review_comment_message', badge: 'TEXT' }] },
             { name: 'Products', fields: [{ label: 'product_id', badge: 'PK', type: 'pk' }, { label: 'product_category_name', badge: 'VARCHAR(100)' }, { label: 'product_name_len', badge: 'INT' }, { label: 'product_desc_len', badge: 'INT' }, { label: 'product_photos_qty', badge: 'INT' }, { label: 'product_weight_g', badge: 'INT' }, { label: 'product_height_cm', badge: 'INT' }, { label: 'product_width_cm', badge: 'INT' }] },
             { name: 'Sellers', fields: [{ label: 'seller_id', badge: 'PK', type: 'pk' }, { label: 'seller_zip_code_prefix', badge: 'VARCHAR(10)' }, { label: 'seller_city', badge: 'VARCHAR(100)' }, { label: 'seller_state', badge: 'CHAR(2)' }] },
-            { name: 'Geolocation', fields: [{ label: 'geo_zip_code_prefix', badge: 'VARCHAR(10)' }, { label: 'geolocation_lat', badge: 'DECIMAL(10,8)' }, { label: 'geolocation_lng', badge: 'DECIMAL(10,8)' }, { label: 'geolocation_city', badge: 'VARCHAR(100)' }, { label: 'geolocation_state', badge: 'CHAR(2)' }] },
-            { name: 'Category Name Translation', fields: [{ label: 'prod_category_name', badge: 'VARCHAR(100)' }, { label: 'prod_category_name_eng', badge: 'VARCHAR(100)' }]}
+            { name: 'Geolocation', fields: [{ label: 'geolocation_zip_code_prefix', badge: 'VARCHAR(10)' }, { label: 'geolocation_lat', badge: 'DECIMAL(10,8)' }, { label: 'geolocation_lng', badge: 'DECIMAL(10,8)' }, { label: 'geolocation_city', badge: 'VARCHAR(100)' }, { label: 'geolocation_state', badge: 'CHAR(2)' }] },
+            { name: 'Category Name Translation', fields: [{ label: 'product_category_name', badge: 'VARCHAR(100)' }, { label: 'product_category_name_eng', badge: 'VARCHAR(100)' }]}
           ].map((table) => (
             <div key={table.name} className="schema-table">
               <div className="schema-accent-bar"></div>
