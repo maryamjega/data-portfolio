@@ -77,9 +77,9 @@ export default function CarCareHub() {
 
         <div className="hero-left">
           <div className="hero-tag">Relational Database Design</div>
-          <h1>CarCare<br /><span className="line2">Hub.</span></h1>
+          <h1>Olist Marketplace<br /><span className="line2">Insights.</span></h1>
           <p className="hero-desc">
-            A fully normalised relational database for a real-world car service business. Designed through two iterations of progressive refinement covering ERD redesign, SQL implementation, and constraint enforcement.
+          A structured relational database built from a real-world e-commerce dataset. Designed to model customers, orders, products, payments, and reviews, with clean joins and data organisation enabling clear, business-level insights across the marketplace.
           </p>
           <div className="hero-ctas">
             <a href="#schema" className="btn-primary">Explore Schema →</a>
