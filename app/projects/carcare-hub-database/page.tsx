@@ -296,15 +296,14 @@ ORDER BY order_month;
 
       <section id="normalisation" className="normalisation-section">
         <div className="section-tag reveal">Normalisation</div>
-        <h2 className="reveal">No redundancy.<br/>No anomalies.</h2>
+        <h2 className="reveal">Clean structure.<br/>Clear data.</h2>
         <p className="section-desc reveal">
-          Every table verified against the three normal form rules atomic values, full functional dependency, and no transitive dependencies.
+          Data structured to remove duplication, ensure consistent relationships, and support reliable analysis across customers, orders, products, and payments.
         </p>
 
         <div className="norm-grid reveal">
           <div className="norm-card">
-            <div className="norm-nf">1NF</div>
-            <div className="norm-title">First Normal Form</div>
+            <div className="norm-title">Atomic Structure</div>
             <div className="norm-body">All attributes contain atomic values. No repeating groups or multi-valued fields in any table.</div>
             <div className="norm-item">Each column holds a single value</div>
             <div className="norm-item">All rows uniquely identifiable via PK</div>
