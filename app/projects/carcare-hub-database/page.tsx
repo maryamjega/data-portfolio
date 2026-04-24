@@ -328,36 +328,36 @@ ORDER BY order_month;
 
       <section id="process" className="light-section">
         <div className="section-tag reveal">Process</div>
-        <h2 className="reveal">Iterated.<br/>Refined.</h2>
+        <h2 className="reveal">Built.<br/>Refined.</h2>
         <p className="section-desc reveal">
-          Developed across two design iterations each building on the feedback and shortcomings of the previous version.
+          Developed through multiple iterations, improving structure, relationships, and analytical usability across the dataset.
         </p>
 
         <div className="timeline reveal">
           <div className="timeline-item">
             
-            <div className="timeline-title">Initial Planning & Case Study Review</div>
-            <div className="timeline-desc">Analysed CarCare Hub business requirements. Identified all entities, relationships, and initial assumptions. Each team member designed an independent ERD draft before group consolidation into a single model.</div>
+            <div className="timeline-title">Data Exploration & Understanding</div>
+            <div className="timeline-desc">Explored the Olist marketplace dataset to understand structure, relationships, and key entities across customers, orders, products, sellers, and payments.</div>
           </div>
           <div className="timeline-item">
             
-            <div className="timeline-title">ERD Design & Data Dictionary</div>
-            <div className="timeline-desc">Produced the first full ERD with 13 tables, resolved many-to-many relationships using intersection tables, and completed a comprehensive data dictionary covering all attributes, data types, and constraints.</div>
+            <div className="timeline-title">Initial Data Model & Relationships</div>
+            <div className="timeline-desc">Defined core tables and relationships, establishing links between orders, customers, items, and payments to create a connected data foundation.</div>
           </div>
           <div className="timeline-item">
             
-            <div className="timeline-title">ERD Redesign After Feedback</div>
-            <div className="timeline-desc">Reviewed earlier feedback and redesigned the ERD. Key changes: extracted Car_Models, replaced boolean availability with Schedule, introduced Feedback_Handling, corrected ENUM notations, and simplified payment structure to 15 tables.</div>
+            <div className="timeline-title">Model Refinement & Optimization</div>
+            <div className="timeline-desc">Refined the structure to reduce redundancy, clarify relationships, and ensure clean joins between order-level and item-level data.</div>
           </div>
           <div className="timeline-item">
             
-            <div className="timeline-title">SQL Implementation & Debugging</div>
-            <div className="timeline-desc">Wrote full CREATE TABLE statements, INSERT data, and tested with SELECT/JOIN queries. Debugged constraint violations, foreign key dependencies, and data type mismatches in practical sessions.</div>
+            <div className="timeline-title">SQL Development & Data Preparation</div>
+            <div className="timeline-desc">Built joins and analytical views to combine data across tables, enabling consistent metrics and analysis-ready datasets.</div>
           </div>
           <div className="timeline-item">
             
-            <div className="timeline-title">Reflective Analysis & Final Submission</div>
-            <div className="timeline-desc">Documented all design decisions, compared and contrasted both ERD versions, and wrote a structured reflective analysis covering removals, additions, cardinality corrections, and constraint improvements.</div>
+            <div className="timeline-title">Insight Generation & Validation</div>
+            <div className="timeline-desc">Tested queries, validated outputs, and ensured accuracy across key metrics such as revenue, orders, and customer behaviour.</div>
           </div>
         </div>
       </section>
