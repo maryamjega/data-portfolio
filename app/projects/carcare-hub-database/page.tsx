@@ -76,7 +76,7 @@ export default function CarCareHub() {
         </div>
 
         <div className="hero-left">
-          <div className="hero-tag">Relational Database Design</div>
+          <div className="hero-tag">E-Commerce Data Modeling</div>
          <h1>Retail<br /><span className="line2">Data System.</span></h1>
           <p className="hero-desc">
           A structured relational database built from a real-world e-commerce dataset. Designed to model customers, orders, products, payments, and reviews, with clean joins and data organisation enabling clear, business-level insights across the marketplace.
@@ -89,9 +89,9 @@ export default function CarCareHub() {
 
         <div className="hero-right">
           <div className="float-card float-card-1">
-            <div className="float-label">Normal Form</div>
-            <div className="float-value green">3NF</div>
-            <div className="float-sub">Fully achieved</div>
+            <div className="float-label">DATA MODEL</div>
+            <div className="float-value green">Normalized</div>
+            <div className="float-sub">No redundancy</div>
           </div>
 
           <div className="db-mockup">
