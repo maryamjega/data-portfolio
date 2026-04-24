@@ -351,8 +351,8 @@ CREATE TABLE feedback (
 
       <footer className="light">
         <div className="footer-left">
-          <h3>Alae Ibnoucheikh</h3>
-          <p>MEng Computer Science · University of Portsmouth</p>
+          <h3>Maryam Bashir Jega</h3>
+          <p>MSc Data Science · Middlsex University Dubai</p>
           <p style={{ marginTop: '4px', fontSize: '12px', color: '#444' }}>Database Systems Development</p>
         </div>
         <div className="footer-links">
