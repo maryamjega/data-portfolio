@@ -245,10 +245,13 @@ SELECT
     oi.order_id,
     o.customer_id,
     c.customer_unique_id,
-    DATE(o.order_purchase_timestamp) AS order_date,
-    DATE_FORMAT(o.order_purchase_timestamp, '%Y-%m-01') AS order_month,
+    DATE(o.order_purchase_timestamp)
+    AS order_date,
+    DATE_FORMAT(o.order_purchase_timestamp, '%Y-%m-01') 
+    AS order_month,
     oi.product_id,
-    COALESCE(t.product_category_name_english, p.product_category_name, 'Unknown') AS product_category,
+    COALESCE(t.product_category_name_english, p.product_category_name, 'Unknown') 
+    AS product_category,
     oi.seller_id,
     oi.price,
     oi.freight_value,
@@ -257,18 +260,35 @@ FROM order_items oi
 JOIN orders o ON oi.order_id = o.order_id
 LEFT JOIN customers c ON o.customer_id = c.customer_id
 LEFT JOIN products p ON oi.product_id = p.product_id
-LEFT JOIN category_translation t ON p.product_category_name = t.product_category_name;
+LEFT JOIN category_translation t 
+ON p.product_category_name = t.product_category_name;
 );`}</pre>
-            <pre>{`-- Business KPI query (aggregation + insight)
+            <pre>{`-- Monthly revenue + customer + AOV breakdown
+WITH monthly_orders AS (
+    SELECT
+        order_id,
+        order_month,
+        customer_unique_id,
+        SUM(gross_item_value) AS order_value
+    FROM v_order_items_enriched
+    GROUP BY order_id, order_month, customer_unique_id),
+customer_metrics AS (
+    SELECT
+        order_month,
+        COUNT(DISTINCT customer_unique_id) AS unique_customers,
+        COUNT(order_id) AS total_orders,
+        SUM(order_value) AS total_revenue,
+        AVG(order_value) AS avg_order_value
+    FROM monthly_orders
+    GROUP BY order_month)
 SELECT
     order_month,
-    product_category,
-    COUNT(DISTINCT order_id) AS total_orders,
-    SUM(gross_item_value) AS revenue,
-    AVG(gross_item_value) AS avg_order_value
-FROM v_order_items_enriched
-GROUP BY order_month, product_category
-ORDER BY revenue DESC;
+    total_orders,
+    unique_customers,
+    total_revenue,
+    avg_order_value
+FROM customer_metrics
+ORDER BY order_month;
 );`}</pre>
           </div>
         </div>
