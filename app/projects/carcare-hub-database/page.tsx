@@ -228,9 +228,9 @@ export default function CarCareHub() {
 
       <section id="sql" className="light-section">
         <div className="section-tag reveal">Implementation</div>
-        <h2 className="reveal">SQL that<br/>enforces rules.</h2>
+        <h2 className="reveal">SQL that<br/>powers insight.</h2>
         <p className="section-desc reveal">
-          Constraints, CHECK conditions, ENUM types, and foreign key relationships enforced at the database level not just in application logic.
+        Relationships, joins, and structured views built directly into the data model enabling accurate revenue, customer, and product analysis without relying on application logic.
         </p>
 
         <div className="sql-window reveal">
