@@ -130,27 +130,27 @@ export default function CarCareHub() {
 
           <div className="float-card float-card-2">
             <div className="float-label">Tables Designed</div>
-            <div className="float-value" style={{ fontSize: '14px', color: 'var(--white)' }}>15 Normalised</div>
+            <div className="float-value" style={{ fontSize: '14px', color: 'var(--white)' }}>9 Normalized</div>
             <div className="float-sub">PostgreSQL · ERD · SQL</div>
           </div>
         </div>
       </section>
 
       <div className="stats reveal">
-        <div className="stat"><div className="stat-number">15<span>×</span></div><div className="stat-label">Normalised relational tables</div></div>
+        <div className="stat"><div className="stat-number">9<span>×</span></div><div className="stat-label">Normalized relational tables</div></div>
         <div className="stat-divider"></div>
         <div className="stat"><div className="stat-number">3<span>NF</span></div><div className="stat-label">Third Normal Form achieved</div></div>
         <div className="stat-divider"></div>
-        <div className="stat"><div className="stat-number">2<span>×</span></div><div className="stat-label">ERD design iterations</div></div>
+        <div className="stat"><div className="stat-number">4<span>×</span></div><div className="stat-label">ERD design iterations</div></div>
         <div className="stat-divider"></div>
         <div className="stat"><div className="stat-number">40<span>+</span></div><div className="stat-label">Hours of design work</div></div>
       </div>
 
       <section id="schema" className="light-section">
         <div className="section-tag reveal">Schema</div>
-        <h2 className="reveal">15 tables.<br />One system.</h2>
+        <h2 className="reveal">9 tables.<br />Fully Connected.</h2>
         <p className="section-desc reveal">
-          Every entity in the CarCare Hub business mapped to a clean, normalised schema from customers and cars through to staff scheduling, invoicing, and structured feedback.
+         Every entity in the marketplace mapped to a clean, normalized schema from customers and orders through to products, payments, sellers, and structured reviews.
         </p>
 
         <div className="schema-grid reveal">
