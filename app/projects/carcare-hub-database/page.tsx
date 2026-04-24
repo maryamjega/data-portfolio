@@ -189,26 +189,26 @@ export default function CarCareHub() {
         <div className="features-layout reveal">
           <div className="feature-block accent-block">
             <div className="feature-num">01</div>
-            <div className="feature-tag">Normalisation</div>
-            <div className="feature-title">Cars extracted into Car Models + Manufacturer</div>
-            <div className="feature-desc">The initial design stored manufacturer data directly in the Cars table, creating redundancy. This was extracted into a separate Car_Models table eliminating duplication and achieving proper 3NF compliance.</div>
+            <div className="feature-tag">Structure</div>
+            <div className="feature-title">Orders centralized as the core fact table</div>
+            <div className="feature-desc">Orders act as the backbone of the system, linking customers, payments, items, and reviews into a single, consistent flow for analysis.</div>
           </div>
           <div className="feature-block">
             <div className="feature-num">02</div>
-            <div className="feature-tag">Scheduling</div>
-            <div className="feature-title">Boolean flag replaced with a full Schedule system</div>
-            <div className="feature-desc">The initial ERD used a simple staff_available boolean. This was replaced with a dedicated Schedule table and Staff_Schedule intersection table, supporting shift types and many-to-many staff assignments.</div>
+            <div className="feature-tag">Normalization</div>
+            <div className="feature-title">Customer and product data separated to reduce redundancy</div>
+            <div className="feature-desc">Repeated attributes were isolated into dedicated tables, ensuring cleaner joins and eliminating duplication across transactions.</div>
           </div>
           <div className="feature-block">
             <div className="feature-num">03</div>
-            <div className="feature-tag">Financial Flow</div>
-            <div className="feature-title">3-table Installment Plan simplified to Invoice → Payment</div>
-            <div className="feature-desc">The first version used three tables introducing unnecessary joins. This was simplified to Invoice → Payment with an inv_no_payments field preserving all business logic with far less complexity.</div>
+            <div className="feature-tag">Analytical Design/div>
+            <div className="feature-title">Order-level and item-level data split for accuracy</div>
+            <div className="feature-desc">Distinct views of orders and items prevent double-counting and allow precise revenue, product, and customer analysis.</div>
           </div>
           <div className="feature-block">
             <div className="feature-num">04</div>
-            <div className="feature-tag">Accountability</div>
-            <div className="feature-title">Feedback_Handling table added for staff accountability</div>
+            <div className="feature-tag">Analytical Design</div>
+            <div className="feature-title">Order-level and item-level data split for accuracy</div>
             <div className="feature-desc">No mechanism existed to track which staff member addressed a complaint. The new Feedback_Handling table links each feedback record to a specific staff member with a response date and handling note.</div>
           </div>
           <div className="feature-block">
