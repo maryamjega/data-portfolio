@@ -99,31 +99,31 @@ export default function CarCareHub() {
               <div className="db-dot r"></div>
               <div className="db-dot y"></div>
               <div className="db-dot g"></div>
-              <span className="db-filename">carcare_hub.sql</span>
+              <span className="db-filename">retail_data_system.sql</span>
             </div>
             <div className="db-body">
               <div className="db-table">
                 <div className="db-table-head">Customers</div>
-                <div className="db-row"><span className="pk">cust_id</span><span className="type">PK · SERIAL</span></div>
-                <div className="db-row"><span>cust_fname</span><span className="type">VARCHAR(50)</span></div>
-                <div className="db-row"><span>cust_email</span><span className="type">UNIQUE</span></div>
-                <div className="db-row"><span>cust_phone_num</span><span className="type">UNIQUE</span></div>
+                <div className="db-row"><span className="pk">customer_id</span><span className="type">PK · SERIAL</span></div>
+                <div className="db-row"><span>customer_unique_id</span><span className="type">UNIQUE</span></div>
+                <div className="db-row"><span>customer_zip_code_prefix</span><span className="type">VARCHAR(10)</span></div>
+                <div className="db-row"><span>customer_state</span><span className="type">CHAR(2)</span></div>
               </div>
               <div className="db-arrow">↕</div>
               <div className="db-table">
-                <div className="db-table-head">Cars</div>
-                <div className="db-row"><span className="pk">car_id</span><span className="type">PK · SERIAL</span></div>
-                <div className="db-row"><span className="fk">cust_id</span><span className="type">FK → Customers</span></div>
-                <div className="db-row"><span className="fk">car_model_id</span><span className="type">FK → Models</span></div>
-                <div className="db-row"><span>car_condition</span><span className="type">ENUM</span></div>
+                <div className="db-table-head">Order_ID</div>
+                <div className="db-row"><span className="pk">order_id</span><span className="type">PK · SERIAL</span></div>
+                <div className="db-row"><span className="fk">customer_id</span><span className="type">FK → Customers</span></div>
+                <div className="db-row"><span>order_status</span><span className="type">VARCHAR(20)</span></div>
+                <div className="db-row"><span>order_timestamp</span><span className="type">DATETIME</span></div>
               </div>
               <div className="db-arrow">↕</div>
               <div className="db-table">
-                <div className="db-table-head">Service Appointments</div>
-                <div className="db-row"><span className="pk">serv_app_id</span><span className="type">PK · SERIAL</span></div>
-                <div className="db-row"><span className="fk">car_id</span><span className="type">FK → Cars</span></div>
-                <div className="db-row"><span>serv_app_status</span><span className="type">ENUM</span></div>
-                <div className="db-row"><span>serv_app_time</span><span className="type">CHECK 09–17</span></div>
+                <div className="db-table-head">Items</div>
+                <div className="db-row"><span className="pk">item_id</span><span className="type">PK · SERIAL</span></div>
+                <div className="db-row"><span className="fk">order_id</span><span className="type">FK → Orders</span></div>
+                <div className="db-row"><span>shipping_limit_date</span><span className="type">DATETIME</span></div>
+                <div className="db-row"><span>price</span><span className="type">DECIMAL(10,2)</span></div>
               </div>
             </div>
           </div>
@@ -155,9 +155,9 @@ export default function CarCareHub() {
 
         <div className="schema-grid reveal">
           {[
-            { name: 'Customers', fields: [{ label: 'customer_id', badge: 'PK', type: 'pk' }, { label: 'customer_unique_id', badge: 'UNIQUE' }, { label: 'cust_zip_code_prefix', badge: 'VARCHAR(10)' }, { label: 'customer_state', badge: 'CHAR(2)' }, ] },
+            { name: 'Customers', fields: [{ label: 'customer_id', badge: 'PK', type: 'pk' }, { label: 'customer_unique_id', badge: 'UNIQUE' }, { label: 'customer_zip_code_prefix', badge: 'VARCHAR(10)' }, { label: 'customer_state', badge: 'CHAR(2)' }, ] },
             { name: 'Orders', fields: [{ label: 'order_id', badge: 'PK', type: 'pk' }, { label: 'customer_id', badge: 'FK', type: 'fk' }, { label: 'order_status', badge: 'VARCHAR(20)'}, { label: 'order_timestamp', badge: 'DATETIME' }, { label: 'order_approved_at', badge: 'DATETIME' }, { label: 'order_delivered_carrier_date', badge: 'DATETIME' }, { label: 'order_delivered_customer_date', badge: 'DATETIME' }, { label: 'order_estimated_delivery_date', badge: 'DATETIME' }] },
-            { name: 'Order Item', fields: [{ label: 'order_id', badge: 'FK', type: 'fk' }, { label: 'order_item_id', badge: 'PK', type: 'pk' }, { label: 'product_id', badge: 'FK', type: 'fk' }, { label: 'seller_id', badge: 'FK', type: 'fk' }, { label: 'shipping_limit_date', badge: 'DATETIME' }, { label: 'price', badge: 'DECIMAL(10,2)' }, { label: 'freight_value', badge: 'DECIMAL(10,2)' }] },
+            { name: 'Items', fields: [{ label: 'order_id', badge: 'FK', type: 'fk' }, { label: 'order_item_id', badge: 'PK', type: 'pk' }, { label: 'product_id', badge: 'FK', type: 'fk' }, { label: 'seller_id', badge: 'FK', type: 'fk' }, { label: 'shipping_limit_date', badge: 'DATETIME' }, { label: 'price', badge: 'DECIMAL(10,2)' }, { label: 'freight_value', badge: 'DECIMAL(10,2)' }] },
             { name: 'Payments', fields: [{ label: 'order_id', badge: 'FK', type: 'fk' }, { label: 'payment_sequential', badge: 'INT'}, { label: 'payment_type', badge: 'ENUM' }, { label: 'payment_installments', badge: 'INT' }, { label: 'payment_value', badge: 'DECIMAL(10,2)' }] },
             { name: 'Reviews', fields: [{ label: 'review_id', badge: 'PK', type: 'pk' }, { label: 'order_id', badge: 'FK', type: 'fk' }, { label: 'review_score', badge: 'TINYINT' }, { label: 'review_comment_title', badge: 'VARCHAR(255)' }, { label: 'review_comment_message', badge: 'TEXT' }] },
             { name: 'Products', fields: [{ label: 'product_id', badge: 'PK', type: 'pk' }, { label: 'product_category_name', badge: 'VARCHAR(100)' }, { label: 'product_name_len', badge: 'INT' }, { label: 'product_desc_len', badge: 'INT' }, { label: 'product_photos_qty', badge: 'INT' }, { label: 'product_weight_g', badge: 'INT' }, { label: 'product_height_cm', badge: 'INT' }, { label: 'product_width_cm', badge: 'INT' }] },
