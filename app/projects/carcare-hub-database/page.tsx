@@ -207,21 +207,21 @@ export default function CarCareHub() {
           </div>
           <div className="feature-block">
             <div className="feature-num">04</div>
-            <div className="feature-tag">Analytical Design</div>
-            <div className="feature-title">Order-level and item-level data split for accuracy</div>
-            <div className="feature-desc">No mechanism existed to track which staff member addressed a complaint. The new Feedback_Handling table links each feedback record to a specific staff member with a response date and handling note.</div>
+            <div className="feature-tag">Category Standardization</div>
+            <div className="feature-title">Product categories translated into a unified format</div>
+            <div className="feature-desc">Raw category labels were mapped to consistent, readable values, improving clarity and enabling meaningful grouping in analysis.</div>
           </div>
           <div className="feature-block">
             <div className="feature-num">05</div>
             <div className="feature-tag">Data Integrity</div>
-            <div className="feature-title">ENUM values corrected from numeric to named categories</div>
-            <div className="feature-desc">The initial design used numeric ENUM values (1, 2, 3) for status fields. These were replaced with explicit named options like 'Scheduled', 'Completed', 'Cancelled' preventing ambiguous data entry.</div>
+            <div className="feature-title">Flexible data types used to handle real-world variation</div>
+            <div className="feature-desc">TVARCHAR and DECIMAL types were used to accommodate inconsistent formats across IDs, locations, and monetary values without breaking structure.</div>
           </div>
           <div className="feature-block">
             <div className="feature-num">06</div>
-            <div className="feature-tag">International Support</div>
-            <div className="feature-title">VARCHAR(15) for plate numbers supports international clients</div>
-            <div className="feature-desc">Initially CHAR was considered for fixed UK formats. VARCHAR(15) accommodates international customers from France, Belgium, and beyond whose plate number formats vary significantly in length and structure.</div>
+            <div className="feature-tag">Relationships</div>
+            <div className="feature-title">Foreign key relationships enforce consistency across tables</div>
+            <div className="feature-desc">Clear links between customers, orders, products, sellers, and payments ensure reliable joins and a fully connected data model.</div>
           </div>
         </div>
       </section>
