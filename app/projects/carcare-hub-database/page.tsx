@@ -295,7 +295,7 @@ ORDER BY order_month;
       </section>
 
       <section id="normalisation" className="normalisation-section">
-        <div className="section-tag reveal">Normalisation</div>
+        <div className="section-tag reveal">Data Model</div>
         <h2 className="reveal">Clean structure.<br/>Clear data.</h2>
         <p className="section-desc reveal">
           Data structured to remove duplication, ensure consistent relationships, and support reliable analysis across customers, orders, products, and payments.
@@ -304,13 +304,13 @@ ORDER BY order_month;
         <div className="norm-grid reveal">
           <div className="norm-card">
             <div className="norm-title">Atomic Structure</div>
-            <div className="norm-body">All attributes contain atomic values. No repeating groups or multi-valued fields in any table.</div>
-            <div className="norm-item">Each column holds a single value</div>
-            <div className="norm-item">All rows uniquely identifiable via PK</div>
-            <div className="norm-item">No arrays or nested data structures</div>
+            <div className="norm-body">All fields stored at the correct level. No repeated or nested values across tables.</div>
+            <div className="norm-item">Customer, order, and product data separated</div>
+            <div className="norm-item">Each row uniquely identified by primary keys</div>
+            <div className="norm-item">No duplicated attributes within tables</div>
           </div>
           <div className="norm-card">
-            <div className="norm-nf">2NF</div>
+            <div className="norm-nf">Clean Dependencies</div>
             <div className="norm-title">Second Normal Form</div>
             <div className="norm-body">All non-key attributes depend fully on the entire primary key no partial dependencies exist.</div>
             <div className="norm-item">Car details separated from Customer data</div>
