@@ -181,9 +181,9 @@ export default function CarCareHub() {
 
       <section id="decisions" className="decisions-section">
         <div className="section-tag reveal">Design Decisions</div>
-        <h2 className="reveal">Built to<br/>last.</h2>
+        <h2 className="reveal">Designed for<br/>insight.</h2>
         <p className="section-desc reveal">
-          Key architectural choices made across both design iterations each one improving data integrity, reducing redundancy, or resolving real design flaws.
+         Refined across iterations to improve data integrity, remove redundancy, and strengthen relationships across the marketplace.
         </p>
 
         <div className="features-layout reveal">
