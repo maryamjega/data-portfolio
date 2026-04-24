@@ -239,40 +239,36 @@ export default function CarCareHub() {
             <span className="sql-filename">carcare_hub.sql PostgreSQL</span>
           </div>
           <div className="sql-body">
-            <pre>{`-- Service Appointments with CHECK constraint
-CREATE TABLE service_appointments (
-  serv_app_id     SERIAL   PRIMARY KEY,
-  car_id          INT      NOT NULL,
-  serv_app_status VARCHAR
-    CHECK (serv_app_status IN (
-    'Scheduled', 'In Progress',
-    'Completed', 'Cancelled'
-  ))                          NOT NULL,
-  serv_app_date   DATE     NOT NULL,
-  serv_app_time   TIME     NOT NULL
-    CHECK (serv_app_time
-      BETWEEN '09:00:00'
-      AND     '17:00:00'),
-  FOREIGN KEY (car_id)
-    REFERENCES cars(car_id)
+            <pre>{`-- Enriched analytical view
+CREATE OR REPLACE VIEW v_order_items_enriched AS
+SELECT
+    oi.order_id,
+    o.customer_id,
+    c.customer_unique_id,
+    DATE(o.order_purchase_timestamp) AS order_date,
+    DATE_FORMAT(o.order_purchase_timestamp, '%Y-%m-01') AS order_month,
+    oi.product_id,
+    COALESCE(t.product_category_name_english, p.product_category_name, 'Unknown') AS product_category,
+    oi.seller_id,
+    oi.price,
+    oi.freight_value,
+    (oi.price + oi.freight_value) AS gross_item_value
+FROM order_items oi
+JOIN orders o ON oi.order_id = o.order_id
+LEFT JOIN customers c ON o.customer_id = c.customer_id
+LEFT JOIN products p ON oi.product_id = p.product_id
+LEFT JOIN category_translation t ON p.product_category_name = t.product_category_name;
 );`}</pre>
-            <pre>{`-- Feedback with structured ratings
-CREATE TABLE feedback (
-  feedback_id      SERIAL  PRIMARY KEY,
-  cust_id          INT     NOT NULL,
-  staff_id         INT     NOT NULL,
-  feedback_comment TEXT,
-  feedback_ratings VARCHAR
-    CHECK (feedback_ratings IN (
-    'Very Poor', 'Poor',
-    'Average', 'Good',
-    'Excellent'
-  ))                          NOT NULL,
-  feedback_date    DATE    NOT NULL,
-  FOREIGN KEY (cust_id)
-    REFERENCES customers(cust_id),
-  FOREIGN KEY (staff_id)
-    REFERENCES staff(staff_id)
+            <pre>{`-- Business KPI query (aggregation + insight)
+SELECT
+    order_month,
+    product_category,
+    COUNT(DISTINCT order_id) AS total_orders,
+    SUM(gross_item_value) AS revenue,
+    AVG(gross_item_value) AS avg_order_value
+FROM v_order_items_enriched
+GROUP BY order_month, product_category
+ORDER BY revenue DESC;
 );`}</pre>
           </div>
         </div>
