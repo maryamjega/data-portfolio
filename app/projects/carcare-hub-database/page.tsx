@@ -310,20 +310,18 @@ ORDER BY order_month;
             <div className="norm-item">No duplicated attributes within tables</div>
           </div>
           <div className="norm-card">
-            <div className="norm-nf">Clean Dependencies</div>
-            <div className="norm-title">Second Normal Form</div>
-            <div className="norm-body">All non-key attributes depend fully on the entire primary key no partial dependencies exist.</div>
-            <div className="norm-item">Car details separated from Customer data</div>
-            <div className="norm-item">Service details not stored in appointments</div>
-            <div className="norm-item">Intersection tables resolve many-to-many</div>
+            <div className="norm-title">Clean Dependencies</div>
+            <div className="norm-body">Data organised so each attribute depends only on its key, eliminating partial and unnecessary dependencies.</div>
+            <div className="norm-item">Order-level and item-level data clearly separated</div>
+            <div className="norm-item">Payments linked directly to orders</div>
+            <div className="norm-item">Joins simplified for accurate aggregation</div>
           </div>
           <div className="norm-card">
-            <div className="norm-nf">3NF</div>
-            <div className="norm-title">Third Normal Form</div>
-            <div className="norm-body">No transitive dependencies. Every non-key attribute depends only on the primary key, nothing else.</div>
-            <div className="norm-item">Manufacturer extracted from Car_Models</div>
-            <div className="norm-item">Department data not duplicated in Staff</div>
-            <div className="norm-item">Invoice details not duplicated in Payment</div>
+            <div className="norm-title">No Redundancy</div>
+            <div className="norm-body">All repeated data moved to dedicated tables, ensuring a clean, scalable data model.</div>
+            <div className="norm-item">Customer details stored once, reused across orders</div>
+            <div className="norm-item">Product categories centralised and standardised</div>
+            <div className="norm-item">Relationships enforce consistency across the system</div>
           </div>
         </div>
       </section>
