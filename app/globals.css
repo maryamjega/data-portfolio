@@ -58,7 +58,7 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  className={`${vinaSans.variable} ${otherFont.variable} ${anotherFont.variable}`}
   --font-display: var(--font-syne), 'Syne', system-ui, sans-serif;
   --font-mono: 'Courier New', monospace;
   --color-background: var(--background);
