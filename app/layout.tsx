@@ -48,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <body className={`${syne.variable} ${dmSans.variable} ${ibmPlexMono.variable} font-sans antialiased`}>
+        <body  className={`${vinaSans.variable} ${otherFont.variable} ${anotherFont.variable}`}>
         <CustomCursor />
         {children}
         <Analytics />
