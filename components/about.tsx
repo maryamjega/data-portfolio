@@ -132,7 +132,7 @@ export function About() {
               style={{
                 fontFamily: "var(--font-syne,'Syne'),sans-serif",
                 background: "#111",
-                color: "#f7f3ee",
+                color: "#ffffff",
                 textDecoration: "none",
               }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#333" }}
