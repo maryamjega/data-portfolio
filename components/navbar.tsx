@@ -121,7 +121,7 @@ export function Navbar() {
           <Link
             href="/"
             style={{
-              fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif"
+              fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
               fontWeight: 800,
               fontSize: 17,
               textDecoration: "none",
