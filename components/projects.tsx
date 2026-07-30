@@ -223,7 +223,7 @@ export function Projects() {
                   </div>
                   <div
                     className="flex items-center gap-1 text-[12px] font-bold transition-all duration-200 group-hover:text-[#111010] group-hover:translate-x-[3px] group-hover:translate-y-[-2px]"
-                    style={{ fontFamily: "var(--font-syne,'Syne'),sans-serif", color: "#888", whiteSpace: "nowrap" }}
+                    style={{ fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif", color: "#888", whiteSpace: "nowrap" }}
                   >
                     View
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
