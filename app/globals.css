@@ -59,6 +59,7 @@
 
 @theme inline {
   --font-sans: var(--font-vina-sans), 'Vina Sans', system-ui, sans-serif;
+  --font-sans: var(--font-instrument-serif), 'Instrument Serif', serif;
   --font-display: var(--font-syne), 'Syne', system-ui, sans-serif;
   --font-mono: 'Courier New', monospace;
   --color-background: var(--background);
