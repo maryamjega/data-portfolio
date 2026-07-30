@@ -122,7 +122,6 @@ export function Navbar() {
             href="/"
             style={{
               fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
-              fontWeight: 400,
               fontSize: 17,
               textDecoration: "none",
               color: stuck ? "#ffffff" : "#111010",
@@ -247,8 +246,7 @@ export function Navbar() {
               href="/"
               onClick={() => setIsOpen(false)}
               style={{
-                fontFamily: "var(--font-syne,'Syne'),sans-serif",
-                fontWeight: 800,
+                fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                 fontSize: 20,
                 textDecoration: "none",
                 color: "#ffffff",
@@ -268,8 +266,7 @@ export function Navbar() {
               borderBottom: "1px solid rgba(255,255,255,0.05)",
               textDecoration: "none",
               color: activeSection === link.id ? "#ffffff" : "rgba(240,235,227,0.65)",
-              fontFamily: "var(--font-syne,'Syne'),sans-serif",
-              fontWeight: 700,
+              fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
               fontSize: 18,
               transition: "color 0.2s",
             }
@@ -298,7 +295,7 @@ export function Navbar() {
           {/* CV button in sidebar */}
           <div style={{ marginTop: "auto", paddingTop: 32 }}>
             <a
-              href="/Resume Alae Ibnou Cheikh.pdf"
+              href="/Resume_Maryam_Jega.pdf"
               download
               style={{
                 display: "flex",
