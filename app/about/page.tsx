@@ -183,56 +183,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* ── Section 4: Outside of Tech ───────────── */}
-        <div className="px-6 py-20" style={{ background: "#111", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-          <div className="mx-auto max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] mb-6" style={{ color: "#666", fontFamily: "var(--font-ibm-plex-mono,'IBM Plex Mono'),monospace" }}>
-              Beyond the Screen
-            </p>
-            <blockquote
-              className="font-black leading-[1.15] mb-4"
-              style={{
-              fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
-                fontSize: "clamp(20px,2.8vw,32px)",
-                letterSpacing: "-0.8px",
-                color: "#f7f3ee",
-                borderLeft: "4px solid #f7f3ee",
-                paddingLeft: 24,
-              }}
-            >
-              &ldquo;Progress compounds,<br />even when it doesn&apos;t feel like it.&rdquo;
-            </blockquote>
-            <PolaroidStack />
-            <div className="flex flex-col md:flex-row md:items-end gap-8 mt-10">
-              <div className="flex-shrink-0">
-                <div
-                  className="font-black leading-none"
-                  style={{
-                   fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
-                    fontSize: "clamp(64px,10vw,110px)",
-                    letterSpacing: "-4px",
-                    color: "#f7f3ee",
-                  }}
-                >
-                  7
-                </div>
-                <div className="mt-1 text-sm font-semibold" style={{ color: "#f7f3ee" }}>Races</div>
-              </div>
-              <div className="flex-1 flex flex-col gap-4 text-sm leading-[1.9]" style={{ color: "#888" }}>
-                <p>
-                  When I step away from the screen, you will usually find me running. Distance running became one of the most important parts of my life outside of tech not because of the races themselves, but because of what the training teaches you.
-                </p>
-                <p>
-                  Running taught me that meaningful goals are not achieved through bursts of intensity. They are built through discipline, consistency, and a long-term mindset. I carry those principles into everything: how I build software, how I learn new skills, how I approach problems that do not have obvious solutions. Every kilometre is a reminder that the work compounds, even when it does not feel like it.
-                </p>
-                <p>
-                  I also hike whenever I can. There is something grounding about disconnecting from screens and spending time in nature. It brings a clarity that carries directly into my work.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* ── Section 5: The Mission ────────────────── */}
         <div className="px-6 py-20">
           <div className="mx-auto max-w-3xl">
