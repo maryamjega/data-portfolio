@@ -67,7 +67,7 @@ export default function AboutPage() {
             <blockquote
               className="font-black leading-[1.15] mb-10"
               style={{
-                fontFamily: "var(--font-syne,'Syne'),sans-serif",
+                fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
                 fontSize: "clamp(24px,3.5vw,40px)",
                 letterSpacing: "-1px",
                 color: "#111",
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 <div
                   className="font-black leading-none"
                   style={{
-                    fontFamily: "var(--font-syne,'Syne'),sans-serif",
+                    fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
                     fontSize: "clamp(64px,10vw,120px)",
                     letterSpacing: "-4px",
                     color: "#f7f3ee",
@@ -135,7 +135,7 @@ export default function AboutPage() {
             <blockquote
               className="font-black leading-[1.15] mb-10"
               style={{
-               fontFamily: "var(--font-vina-sans,'Vina Sans'),sans-serif",
+               fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
                 fontSize: "clamp(22px,3vw,36px)",
                 letterSpacing: "-1px",
                 color: "#111",
@@ -193,7 +193,7 @@ export default function AboutPage() {
             <blockquote
               className="font-black leading-[1.15] mb-4"
               style={{
-               fontFamily: "var(--font-vina-sans,'Vina Sans'),sans-serif",
+              fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
                 fontSize: "clamp(20px,2.8vw,32px)",
                 letterSpacing: "-0.8px",
                 color: "#f7f3ee",
@@ -209,7 +209,7 @@ export default function AboutPage() {
                 <div
                   className="font-black leading-none"
                   style={{
-                   fontFamily: "var(--font-vina-sans,'Vina Sans'),sans-serif",
+                   fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
                     fontSize: "clamp(64px,10vw,110px)",
                     letterSpacing: "-4px",
                     color: "#f7f3ee",
@@ -243,7 +243,7 @@ export default function AboutPage() {
             <blockquote
               className="font-black leading-[1.15] mb-10"
               style={{
-                fontFamily: "var(--font-vina-sans,'Vina Sans'),sans-serif",
+                fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
                 fontSize: "clamp(20px,2.8vw,34px)",
                 letterSpacing: "-1px",
                 color: "#111",
@@ -271,7 +271,7 @@ export default function AboutPage() {
                 href="/#contact"
                 className="inline-flex items-center gap-2 px-7 py-[14px] rounded-md text-[13px] font-bold transition-all duration-200"
                 style={{
-                 fontFamily: "var(--font-vina-sans,'Vina Sans'),sans-serif",
+                 fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
                   background: "#111",
                   color: "#f7f3ee",
                   textDecoration: "none",
@@ -283,7 +283,7 @@ export default function AboutPage() {
                 href="/#projects"
                 className="inline-flex items-center gap-2 px-7 py-[14px] rounded-md text-[13px] font-bold transition-all duration-200"
                 style={{
-                  fontFamily: "var(--font-vina-sans,'Vina Sans'),sans-serif",
+                 fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
                   background: "transparent",
                   color: "#111",
                   textDecoration: "none",
