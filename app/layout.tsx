@@ -3,7 +3,7 @@ import { Syne, DM_Sans, IBM_Plex_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { CustomCursor } from '@/components/custom-cursor'
 import './globals.css'
-import { Vina_Sans } from "next/font/google";
+import { Syne, DM_Sans, IBM_Plex_Mono, Vina_Sans } from "next/font/google"
 
 const vinaSans = Vina_Sans({
   weight: "400",
@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <body  className={`${vinaSans.variable} ${otherFont.variable} ${anotherFont.variable}`}>
+        <body   className={`${vinaSans.variable} ${syne.variable} ${dmSans.variable} ${ibmPlexMono.variable}`}>
         <CustomCursor />
         {children}
         <Analytics />
