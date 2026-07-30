@@ -24,7 +24,7 @@ export function Footer() {
           margin: 0,
         }}
       >
-        2026 Alae Ibnoucheikh · Data Science
+        2026 Maryam Jega · Data Science
       </p>
       <div style={{ display: "flex", gap: 20 }}>
         {[
