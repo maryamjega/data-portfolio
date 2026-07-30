@@ -65,7 +65,7 @@ export function Skills() {
       id="skills"
       style={{
         padding: "clamp(60px,10vw,140px) clamp(20px,6vw,80px)",
-        background: "#f7f3ee",
+        background: "#ffffff",
         borderTop: "1px solid rgba(0,0,0,0.07)",
       }}
     >
@@ -76,7 +76,7 @@ export function Skills() {
           <div
             className="font-black leading-none"
             style={{
-              fontFamily: "var(--font-syne,'Syne'),sans-serif",
+              fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
               fontSize: "clamp(38px, 4.5vw, 62px)",
               letterSpacing: "-2.5px",
             }}
@@ -90,7 +90,7 @@ export function Skills() {
       <div
         className="text-sm font-bold leading-[1.45] pl-5 mb-14 max-w-[560px]"
         style={{
-          fontFamily: "var(--font-syne,'Syne'),sans-serif",
+          fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
           fontSize: "clamp(16px, 1.8vw, 22px)",
           color: "#111",
           borderLeft: "3px solid rgba(0,0,0,0.15)",
@@ -123,7 +123,7 @@ export function Skills() {
               </div>
               <div
                 className="text-[16px] font-bold mb-[18px]"
-                style={{ fontFamily: "var(--font-syne,'Syne'),sans-serif" }}
+                style={{ fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif" }}
               >
                 {card.title}
               </div>
@@ -184,7 +184,7 @@ export function Skills() {
               >
                 <div className="w-[6px] h-[6px] rounded-full flex-shrink-0" style={{ background: lang.pip }} />
                 <div>
-                  <div className="text-[13px] font-semibold" style={{ fontFamily: "var(--font-syne,'Syne'),sans-serif" }}>
+                  <div className="text-[13px] font-semibold" style={{ fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif" }}>
                     {lang.name}
                   </div>
                   <div
