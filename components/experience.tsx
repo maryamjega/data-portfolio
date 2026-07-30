@@ -13,7 +13,7 @@ const timeline = [
   {
     period: "Apr 2025 - Present",
     company: "FedEx",
-    role: "Sales and Customer Analytics Intern",
+    role: "Sales Analytics Intern",
     desc: "Analyzed customer and sales data, identified growth opportunities, and built dashboards to support data-driven decision-making across teams.",
     tag: "Analytics · Growth",
   },
@@ -48,28 +48,28 @@ const timeline = [
   {
     period: "Feb 2024 - Feb 2025",
     company: "Unipreneur",
-    role: "Youth Ambassador | Partnerships",
+    role: "Youth Ambassador - Innovation",
     desc: "Led multi-channel campaigns to boost visibility of social entrepreneurship initiatives and drove cross-team engagement.",
     tag: "Leadership · Marketing",
   },
   {
     period: "Jan 2024 - Mar 2024",
     company: "Boutique Startup",
-    role: "Data Analysis Intern",
+    role: "Data Analyst Intern",
     desc: "Led multi-channel campaigns to boost visibility of social entrepreneurship initiatives and drove cross-team engagement.",
     tag: "Leadership · Marketing",
   },
   {
     period: "Summer 2023",
     company: "Advertisement Firm Dubai",
-    role: "Business Analysis Intern",
+    role: "Data Analyst Intern",
     desc: "Cleaned and structured legal datasets, created SQL queries for internal reporting and operations.",
     tag: "Data · Analytics",
   },
   {
     period: "Summer 2022",
     company: "Nigerian National Oil Company",
-    role: "Data Intern",
+    role: "Data Analyst Intern",
     desc: "Led multi-channel campaigns to boost visibility of social entrepreneurship initiatives and drove cross-team engagement.",
     tag: "Leadership · Marketing",
   },
@@ -159,7 +159,7 @@ export function Experience() {
       id="experience"
       style={{
         padding: "clamp(60px,10vw,140px) clamp(20px,6vw,80px)",
-        background: "#f7f3ee",
+        background: "#ffffff",
         borderTop: "1px solid rgba(0,0,0,0.07)",
       }}
     >
@@ -168,7 +168,7 @@ export function Experience() {
         <div
           className="font-black leading-none"
           style={{
-            fontFamily: "var(--font-syne,'Syne'),sans-serif",
+            fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
             fontSize: "clamp(38px,4.5vw,62px)",
             letterSpacing: "-2.5px",
           }}
