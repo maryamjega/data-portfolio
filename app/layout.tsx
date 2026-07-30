@@ -3,6 +3,13 @@ import { Syne, DM_Sans, IBM_Plex_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { CustomCursor } from '@/components/custom-cursor'
 import './globals.css'
+import { Vina_Sans } from "next/font/google";
+
+const vinaSans = Vina_Sans({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-vina-sans",
+})
 
 const syne = Syne({
   subsets: ['latin'],
