@@ -15,7 +15,7 @@ export function Hero() {
           left: -10,
           fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
           fontWeight: 900,
-          fontSize: "clamp(200px,14vw,190px)",
+          fontSize: "clamp(500px,14vw,550px)",
           color: "transparent",
           WebkitTextStroke: "1px rgba(17,16,16,0.05)",
           letterSpacing: "-2px",
