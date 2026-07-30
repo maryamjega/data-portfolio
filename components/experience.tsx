@@ -4,7 +4,7 @@ import { AnimatedItem } from "@/components/animated-section"
 
 const timeline = [
   {
-    period: "Apr 2026 - Present",
+    period: "Apr 2026 - Jun 2026",
     company: "L'Oréal",
     role: "Brandstorm",
     desc: "Analyzed customer and sales data, identified growth opportunities, and built dashboards to support data-driven decision-making across teams.",
