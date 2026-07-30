@@ -72,7 +72,7 @@ export function About() {
           <div
             className="font-black leading-[.92] mb-7"
             style={{
-              fontFamily: "var(--font-syne,'Syne'),sans-serif",
+             fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
               fontSize: "clamp(36px, 4vw, 56px)",
               letterSpacing: "-2px",
               color: "#111",
