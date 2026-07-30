@@ -91,7 +91,7 @@ export default function AboutPage() {
         <div className="px-6 py-20" style={{ background: "#111", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="mx-auto max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] mb-6" style={{ color: "#666", fontFamily: "var(--font-ibm-plex-mono,'IBM Plex Mono'),monospace" }}>
-              Under Pressure
+              Public Speaking
             </p>
             <div className="flex flex-col md:flex-row md:items-end gap-8 mb-10">
               <div>
@@ -104,21 +104,21 @@ export default function AboutPage() {
                     color: "#f7f3ee",
                   }}
                 >
-                  2×
+                  3×
                 </div>
                 <div className="mt-2 text-sm font-semibold" style={{ color: "#f7f3ee", letterSpacing: "0.05em" }}>
-                  Top 3
+                  Speaker
                 </div>
                 <div className="text-xs mt-1" style={{ color: "#666" }}>
-                  Out of every hackathon I have entered.
+                  Across industry and university events..
                 </div>
               </div>
               <div className="flex-1 flex flex-col gap-4 text-sm leading-[1.9]" style={{ color: "#888" }}>
                 <p>
-                  Hackathons are where I find out what I am actually capable of. The fast-paced, high-stakes environment of building something real under serious time pressure is one I have learned to thrive in. I have competed in several hackathons and placed in the top 3 twice experiences that pushed me to think more creatively, move faster, and turn half-formed ideas into working prototypes in hours rather than weeks.
+                 Public speaking has taught me to communicate ideas with clarity and confidence. Speaking at three different events challenged me to adapt to different audiences, think on my feet and present complex topics in a way that felt engaging and easy to understand. Each experience strengthened my ability to tell compelling stories, whether I am presenting data, pitching an idea or contributing to a wider discussion.
                 </p>
                 <p>
-                  Every hackathon taught me something a classroom cannot: what it feels like to ship under pressure, and how to make decisions when you do not have all the information you need.
+                  It also showed me that strong communication is not just about speaking well, but about making people care about what you are saying.
                 </p>
               </div>
             </div>
@@ -146,15 +146,16 @@ export default function AboutPage() {
             </blockquote>
             <div className="flex flex-col gap-5 text-sm leading-[1.9] mb-10" style={{ color: "#555" }}>
               <p>
-                I have lived and studied in both <span style={{ color: "#111", fontWeight: 600 }}>Morocco and England</span> an experience that shaped not just how I think about problems but how I communicate across cultures. Growing up between two worlds gave me an instinct for finding common ground and a genuine ease in diverse environments.
+              Moving between countries, schools and environments meant I was often the new person in the room. Over time, that became one of my greatest strengths. It taught me how to build relationships quickly, ask thoughtful questions and become comfortable with uncertainty.
               </p>
               <p>
-                Language, for me, is not just a communication tool it is a bridge to understanding how other people see the world.
+               Every new environment reinforced the same lesson: curiosity and adaptability open more doors than familiarity ever could. Language became part of how I found my place—helping me connect across cultures, understand different perspectives and make unfamiliar spaces feel more familiar.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
               {[
                 { lang: "English", level: "Native" },
+                { lang: "Hausa", level: "Native" },
                 { lang: "Gulf Arabic", level: "Intermdiate" },
                 { lang: "French", level: "Beginner" },
                 { lang: "Spanish", level: "Beginner" },
