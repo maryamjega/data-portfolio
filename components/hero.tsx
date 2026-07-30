@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      style={{ position: "relative", minHeight: "100vh", overflow: "hidden", background: "#f7f3ee" }}
+      style={{ position: "relative", minHeight: "100vh", overflow: "hidden", background: "#ffffff" }}
     >
       {/* Ghost watermark */}
       <div
@@ -13,7 +13,7 @@ export function Hero() {
           position: "absolute",
           bottom: -10,
           left: -10,
-          fontFamily: "var(--font-syne,'Syne'),sans-serif",
+          fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
           fontWeight: 900,
           fontSize: "clamp(90px,14vw,190px)",
           color: "transparent",
@@ -91,7 +91,7 @@ export function Hero() {
           {/* Name */}
           <h1
             style={{
-              fontFamily: "var(--font-syne,'Syne'),sans-serif",
+              fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
               fontWeight: 800,
               fontSize: "clamp(64px,8vw,112px)",
               letterSpacing: "-5px",
@@ -257,7 +257,7 @@ export function Hero() {
                 padding: "13px 28px",
                 borderRadius: 10,
                 background: "#111010",
-                color: "#f7f3ee",
+                color: "#ffffff",
                 fontFamily: "var(--font-syne,'Syne'),sans-serif",
                 fontWeight: 700,
                 fontSize: 14,
