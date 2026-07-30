@@ -53,7 +53,7 @@ export function Contact() {
       <div
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
         style={{
-          fontFamily: "var(--font-syne,'Syne'),sans-serif",
+          fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
           fontSize: "clamp(80px,15vw,200px)",
           fontWeight: 900,
           color: "rgba(17,16,16,0.04)",
@@ -80,7 +80,7 @@ export function Contact() {
           <h2
             className="font-black mb-6 leading-none"
             style={{
-              fontFamily: "var(--font-syne,'Syne'),sans-serif",
+              fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
               fontSize: "clamp(32px,5vw,63px)",
               letterSpacing: "-2.5px",
             }}
@@ -159,7 +159,7 @@ export function Contact() {
               className="px-8 py-[14px] rounded-[10px] text-sm font-semibold no-underline transition-all duration-200"
               style={{
                 background: "#111010",
-                color: "#f7f3ee",
+                color: "#ffffff",
                 fontFamily: "var(--font-syne,'Syne'),sans-serif",
               }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#333" }}
@@ -174,7 +174,7 @@ export function Contact() {
                 background: "transparent",
                 color: "#111010",
                 border: "1px solid rgba(0,0,0,0.15)",
-                fontFamily: "var(--font-syne,'Syne'),sans-serif",
+                fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
               }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,0,0,0.25)" }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,0,0,0.15)" }}
