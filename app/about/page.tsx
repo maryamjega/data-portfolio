@@ -222,7 +222,7 @@ export default function AboutPage() {
                 style={{
                  fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
                   background: "#111",
-                  color: "#f7f3ee",
+                  color: "#ffffff",
                   textDecoration: "none",
                 }}
               >
