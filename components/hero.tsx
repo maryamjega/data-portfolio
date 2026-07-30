@@ -93,7 +93,7 @@ export function Hero() {
             style={{
              fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
               fontWeight: 800,
-              fontSize: "clamp(200px,8vw,250px)",
+              fontSize: "clamp(150px,8vw,200px)",
               letterSpacing: "-5px",
               lineHeight: 0.86,
               margin: "0 0 24px",
