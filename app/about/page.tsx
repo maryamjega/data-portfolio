@@ -142,7 +142,7 @@ export default function AboutPage() {
                 paddingLeft: 24,
               }}
             >
-              Two continents. Four languages.<br />One perspective.
+              Always the new person.<br />One perspective.
             </blockquote>
             <div className="flex flex-col gap-5 text-sm leading-[1.9] mb-10" style={{ color: "#555" }}>
               <p>
