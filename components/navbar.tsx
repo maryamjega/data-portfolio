@@ -52,7 +52,7 @@ export function Navbar() {
     if (isHome && activeSection === id) return "#111010"
     return stuck ? "rgba(240,235,227,0.45)" : "rgba(17,16,16,0.5)"
   }
-  const linkHover = stuck ? "#f0ebe3" : "#111010"
+  const linkHover = stuck ? "#ffffff" : "#111010"
 
   return (
     <>
@@ -84,7 +84,7 @@ export function Navbar() {
             style={{
               display: "block",
               width: 22, height: 2,
-              background: isOpen ? "#f0ebe3" : "#111010",
+              background: isOpen ? "#ffffff" : "#111010",
               borderRadius: 2,
               transition: "transform 0.2s, opacity 0.2s, background 0.25s",
               transform: isOpen && i === 0 ? "rotate(45deg) translate(5px, 5px)" : isOpen && i === 2 ? "rotate(-45deg) translate(5px, -5px)" : "none",
@@ -125,7 +125,7 @@ export function Navbar() {
               fontWeight: 800,
               fontSize: 17,
               textDecoration: "none",
-              color: stuck ? "#f0ebe3" : "#111010",
+              color: stuck ? "#ffffff" : "#111010",
               letterSpacing: "-0.5px",
               transition: "color 0.3s",
             }}
@@ -251,7 +251,7 @@ export function Navbar() {
                 fontWeight: 800,
                 fontSize: 20,
                 textDecoration: "none",
-                color: "#f0ebe3",
+                color: "#ffffff",
                 letterSpacing: "-0.5px",
               }}
             >
