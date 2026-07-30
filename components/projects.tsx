@@ -72,7 +72,7 @@ export function Projects() {
       id="projects"
       style={{
         padding: "clamp(60px,10vw,140px) clamp(20px,6vw,80px)",
-        background: "#f7f3ee",
+        background: "#ffffff",
         borderTop: "1px solid rgba(0,0,0,0.07)",
       }}
     >
@@ -83,7 +83,7 @@ export function Projects() {
           <div
             className="font-black leading-none"
             style={{
-              fontFamily: "var(--font-syne,'Syne'),sans-serif",
+              fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
               fontSize: "clamp(38px, 4.5vw, 62px)",
               letterSpacing: "-2.5px",
             }}
@@ -139,7 +139,7 @@ export function Projects() {
                 <div
                   className="absolute bottom-2 left-3 pointer-events-none leading-none z-0"
                   style={{
-                    fontFamily: "var(--font-syne,'Syne'),sans-serif",
+                    fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                     fontSize: "72px",
                     fontWeight: 800,
                     color: "rgba(0,0,0,0.05)",
@@ -176,7 +176,7 @@ export function Projects() {
 
                   <div
                     className="font-black text-[22px] tracking-[-0.8px] leading-[1.1] mb-3"
-                    style={{ fontFamily: "var(--font-syne,'Syne'),sans-serif" }}
+                    style={{ fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif" }}
                   >
                     {card.name}
                   </div>
@@ -243,7 +243,7 @@ export function Projects() {
           href="/projects"
           className="inline-flex items-center gap-2 px-7 py-[14px] rounded-md text-[13px] font-bold transition-all duration-[250ms]"
           style={{
-            fontFamily: "var(--font-syne,'Syne'),sans-serif",
+            fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
             background: "transparent",
             color: "#111010",
             border: "1px solid rgba(0,0,0,0.12)",
