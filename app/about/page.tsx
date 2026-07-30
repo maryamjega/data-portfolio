@@ -40,7 +40,7 @@ export default function AboutPage() {
             <h1
               className="mt-4 font-black leading-[1.05]"
               style={{
-                fontFamily: "var(--font-vina-sans,'Vina Sans'),sans-serif",,
+                fontFamily: "var(--font-vina-sans,'Vina Sans'),sans-serif",
                 fontSize: "clamp(38px,6vw,68px)",
                 letterSpacing: "-2.5px",
                 color: "#111",
@@ -134,7 +134,7 @@ export default function AboutPage() {
             <blockquote
               className="font-black leading-[1.15] mb-10"
               style={{
-               fontFamily: "var(--font-vina-sans,'Vina Sans'),sans-serif",,
+               fontFamily: "var(--font-vina-sans,'Vina Sans'),sans-serif",
                 fontSize: "clamp(22px,3vw,36px)",
                 letterSpacing: "-1px",
                 color: "#111",
@@ -156,7 +156,7 @@ export default function AboutPage() {
               {[
                 { lang: "English", level: "Native" },
                 { lang: "Hausa", level: "Native" },
-                { lang: "Gulf Arabic", level: "Intermdiate" },
+                { lang: "Gulf Arabic", level: "Intermediate" },
                 { lang: "French", level: "Beginner" },
                 { lang: "Spanish", level: "Beginner" },
               ].map(({ lang, level }) => (
