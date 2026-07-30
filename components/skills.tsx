@@ -52,10 +52,10 @@ const skillCards = [
 ]
 
 const languages = [
-  { name: "Arabic",  level: "Native",   pip: "#111" },
-  { name: "Darija",  level: "Native",   pip: "#111" },
-  { name: "French",  level: "Fluent",   pip: "#666" },
-  { name: "English", level: "Fluent",   pip: "#666" },
+  { name: "English",  level: "Native",   pip: "#111" },
+  { name: "Hausa",  level: "Native",   pip: "#111" },
+  { name: "Arabic",  level: "Intermediate",   pip: "#666" },
+  { name: "French", level: "Beginner",   pip: "#666" },
   { name: "Spanish", level: "Beginner", pip: "#222", muted: true },
 ]
 
