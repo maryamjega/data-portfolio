@@ -99,7 +99,7 @@ export default function AboutPage() {
                   className="font-black leading-none"
                   style={{
                     fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
-                    fontSize: "clamp(64px,10vw,120px)",
+                    fontSize: "clamp(76px,10vw,120px)",
                     letterSpacing: "-4px",
                     color: "#f7f3ee",
                   }}
