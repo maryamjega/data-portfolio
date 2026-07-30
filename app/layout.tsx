@@ -3,6 +3,13 @@ import { Analytics } from '@vercel/analytics/next'
 import { CustomCursor } from '@/components/custom-cursor'
 import './globals.css'
 import { Syne, DM_Sans, IBM_Plex_Mono, Vina_Sans } from "next/font/google"
+import { Instrument_Serif } from "next/font/google"
+
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-instrument-serif",
+})
 
 const vinaSans = Vina_Sans({
   weight: "400",
