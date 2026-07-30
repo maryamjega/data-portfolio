@@ -46,7 +46,7 @@ function SoftCard({ card, index }: { card: typeof cards[0]; index: number }) {
       >
         <div
           className="text-[17px] font-bold mb-2"
-          style={{ fontFamily: "var(--font-syne,'Syne'),sans-serif", color: "#111010" }}
+          style={{ fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif"", color: "#111010" }}
         >
           {card.title}
         </div>
@@ -67,7 +67,7 @@ export function SoftSkills() {
       id="softskills"
       style={{
         padding: "clamp(60px,10vw,140px) clamp(20px,6vw,80px)",
-        background: "#f0ebe3",
+        background: "#ffffff",
         borderTop: "1px solid rgba(0,0,0,0.07)",
       }}
     >
