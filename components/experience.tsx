@@ -126,7 +126,7 @@ function TimelineRow({ item, index }: { item: typeof timeline[0]; index: number 
           <div
             className="text-[22px] font-bold mb-[10px] transition-colors duration-200"
             style={{
-              fontFamily: "var(--font-syne,'Syne'),sans-serif",
+              fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
               color: hovered ? "#444" : "#111",
             }}
           >
