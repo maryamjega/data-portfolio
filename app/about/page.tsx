@@ -40,7 +40,7 @@ export default function AboutPage() {
             <h1
               className="mt-4 font-black leading-[1.05]"
               style={{
-                fontFamily: "var(--font-vina-sans,'Vina Sans'),sans-serif",
+                fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
                 fontSize: "clamp(38px,6vw,68px)",
                 letterSpacing: "-2.5px",
                 color: "#111",
