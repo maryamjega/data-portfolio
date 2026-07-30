@@ -6,7 +6,7 @@ export function Footer() {
       style={{
         padding: "28px 88px",
         borderTop: "1px solid rgba(0,0,0,0.07)",
-        background: "#f7f3ee",
+        background: "##ffffff",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
@@ -24,13 +24,13 @@ export function Footer() {
           margin: 0,
         }}
       >
-        2026 Alae Ibnoucheikh · Computer Science · University of Portsmouth
+        2026 Alae Ibnoucheikh · Data Science
       </p>
       <div style={{ display: "flex", gap: 20 }}>
         {[
-          { label: "GitHub",   href: "https://github.com/ibnoucheikhalae" },
-          { label: "LinkedIn", href: "https://www.linkedin.com/in/alae-ibnou-cheikh-a9994b334/" },
-          { label: "Email",    href: "mailto:alaeibnoucheikh@gmail.com" },
+          { label: "GitHub",   href: "https://github.com/maryamjega" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/in/maryamjega/" },
+          { label: "Email",    href: "mailto:maryamjega@outlook.com" },
         ].map(link => (
           <a
             key={link.label}
