@@ -16,13 +16,7 @@ const syne = Syne({
   variable: '--font-syne',
   weight: ['400', '600', '700', '800'],
 })
-import { Vina_Sans } from "next/font/google";
 
-const vinaSans = Vina_Sans({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-vina-sans",
-});
 const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-dm-sans',
