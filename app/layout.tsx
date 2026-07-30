@@ -12,7 +12,7 @@ const instrumentSerif = Instrument_Serif({
 })
 
 const vinaSans = Vina_Sans({
-  weight: "1000",
+  weight: "700",
   subsets: ["latin"],
   variable: "--font-vina-sans",
 })
