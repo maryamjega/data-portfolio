@@ -13,7 +13,7 @@ export function Hero() {
           position: "absolute",
           bottom: -10,
           left: -10,
-          fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
+          fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
           fontWeight: 900,
           fontSize: "clamp(200px,14vw,200px)",
           color: "transparent",
