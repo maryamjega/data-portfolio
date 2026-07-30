@@ -130,7 +130,7 @@ export function About() {
               href="/about"
               className="inline-flex items-center gap-2 px-7 py-[14px] rounded-md text-[13px] font-bold transition-all duration-[250ms]"
               style={{
-                fontFamily: "var(--font-syne,'Syne'),sans-serif",
+                fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                 background: "#111",
                 color: "#ffffff",
                 textDecoration: "none",
