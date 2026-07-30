@@ -32,7 +32,7 @@ export function SkillsMarquee() {
       style={{
         borderTop: "1px solid rgba(0,0,0,0.07)",
         borderBottom: "1px solid rgba(0,0,0,0.07)",
-        background: "#f7f3ee",
+        background: "#ffffff",
       }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -53,7 +53,7 @@ export function SkillsMarquee() {
             <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: "#999" }} />
             <span
               className="text-[13px] font-bold tracking-[0.5px]"
-              style={{ fontFamily: "var(--font-syne,'Syne'),sans-serif", color: "#555" }}
+              style={{ fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif", color: "#555" }}
             >
               {skill}
             </span>
