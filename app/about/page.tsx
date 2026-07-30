@@ -40,7 +40,7 @@ export default function AboutPage() {
             <h1
               className="mt-4 font-black leading-[1.05]"
               style={{
-                fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
+                fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                 fontSize: "clamp(38px,6vw,68px)",
                 letterSpacing: "-2.5px",
                 color: "#111",
@@ -66,7 +66,7 @@ export default function AboutPage() {
             <blockquote
               className="font-black leading-[1.15] mb-10"
               style={{
-                fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
+                fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                 fontSize: "clamp(24px,3.5vw,40px)",
                 letterSpacing: "-1px",
                 color: "#111",
@@ -98,15 +98,15 @@ export default function AboutPage() {
                 <div
                   className="font-black leading-none"
                   style={{
-                    fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
+                    fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                     fontSize: "clamp(76px,10vw,120px)",
                     letterSpacing: "-4px",
-                    color: "#f7f3ee",
+                    color: "#ffffff",
                   }}
                 >
                   3×
                 </div>
-                <div className="mt-2 text-sm font-semibold" style={{ color: "#f7f3ee", letterSpacing: "0.05em" }}>
+                <div className="mt-2 text-sm font-semibold" style={{ color: "#ffffff", letterSpacing: "0.05em" }}>
                   Speaker
                 </div>
                 <div className="text-xs mt-1" style={{ color: "#666" }}>
@@ -134,7 +134,7 @@ export default function AboutPage() {
             <blockquote
               className="font-black leading-[1.15] mb-10"
               style={{
-               fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
+               fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                 fontSize: "clamp(22px,3vw,36px)",
                 letterSpacing: "-1px",
                 color: "#111",
@@ -171,7 +171,7 @@ export default function AboutPage() {
                     style={{
                       fontFamily: "var(--font-ibm-plex-mono,'IBM Plex Mono'),monospace",
                       background: "#111",
-                      color: "#f7f3ee",
+                      color: "#ffffff",
                       letterSpacing: "0.1em",
                     }}
                   >
@@ -192,7 +192,7 @@ export default function AboutPage() {
             <blockquote
               className="font-black leading-[1.15] mb-10"
               style={{
-                fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
+                fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                 fontSize: "clamp(20px,2.8vw,34px)",
                 letterSpacing: "-1px",
                 color: "#111",
@@ -220,7 +220,7 @@ export default function AboutPage() {
                 href="/#contact"
                 className="inline-flex items-center gap-2 px-7 py-[14px] rounded-md text-[13px] font-bold transition-all duration-200"
                 style={{
-                 fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
+                 fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                   background: "#111",
                   color: "#ffffff",
                   textDecoration: "none",
@@ -232,7 +232,7 @@ export default function AboutPage() {
                 href="/#projects"
                 className="inline-flex items-center gap-2 px-7 py-[14px] rounded-md text-[13px] font-bold transition-all duration-200"
                 style={{
-                 fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
+                 fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                   background: "transparent",
                   color: "#111",
                   textDecoration: "none",
