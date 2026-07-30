@@ -59,6 +59,7 @@
 
 @theme inline {
   --font-sans: var(--font-instrument-serif), 'Instrument Serif', serif;
+  --font-sans: var(--font-archivo-black), 'Archivo Black', sans-serif;
   --font-display: var(--font-syne), 'Syne', system-ui, sans-serif;
   --font-mono: 'Courier New', monospace;
   --color-background: var(--background);
