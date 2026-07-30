@@ -42,6 +42,7 @@ export default function AboutPage() {
               style={{
                 fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
                 fontSize: "clamp(38px,6vw,68px)",
+                fontWeight: 700,
                 letterSpacing: "-2.5px",
                 color: "#111",
               }}
