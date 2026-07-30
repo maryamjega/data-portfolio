@@ -15,7 +15,7 @@ export function Hero() {
           left: -10,
           fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
           fontWeight: 900,
-          fontSize: "clamp(500px,14vw,550px)",
+          fontSize: "clamp(200px,14vw,200px)",
           color: "transparent",
           WebkitTextStroke: "1px rgba(17,16,16,0.05)",
           letterSpacing: "-2px",
@@ -46,7 +46,7 @@ export function Hero() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            padding: "120px clamp(20px,6vw,60px) 100px clamp(20px,8vw,88px)",
+            padding: "120px clamp(100px,6vw,120px) 100px clamp(20px,8vw,88px)",
             position: "relative",
           }}
           className="hero-left"
