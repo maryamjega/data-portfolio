@@ -15,7 +15,7 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="pb-24" style={{ background: "#f7f3ee" }}>
+      <main className="pb-24" style={{ background: "#ffffff" }}>
 
         {/* ── Hero ─────────────────────────────────── */}
         <div
