@@ -15,7 +15,7 @@ export function Hero() {
           left: -10,
           fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
           fontWeight: 900,
-          fontSize: "clamp(200px,14vw,200px)",
+          fontSize: "clamp(150px,14vw,150px)",
           color: "transparent",
           WebkitTextStroke: "1px rgba(17,16,16,0.05)",
           letterSpacing: "-2px",
@@ -91,7 +91,7 @@ export function Hero() {
           {/* Name */}
           <h1
             style={{
-              fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
+             fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
               fontWeight: 800,
               fontSize: "clamp(200px,8vw,250px)",
               letterSpacing: "-5px",
