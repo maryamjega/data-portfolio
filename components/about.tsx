@@ -3,20 +3,20 @@
 import Link from "next/link"
 import { AnimatedItem } from "@/components/animated-section"
 
-const interests = ["AI & Intelligent Systems", "Data & Business Analytics", "Finance", "Continuous Grwoth"]
+const interests = ["AI & Intelligent Systems", "Data Science & Analytics", "Finance", "Continuous Grwoth"]
 
 export function About() {
   return (
     <section
       id="about"
       className="relative overflow-hidden"
-      style={{ padding: "clamp(60px,10vw,140px) clamp(20px,6vw,80px)", background: "#f7f3ee", borderTop: "1px solid rgba(0,0,0,0.07)" }}
+      style={{ padding: "clamp(60px,10vw,140px) clamp(20px,6vw,80px)", background: "#ffffff", borderTop: "1px solid rgba(0,0,0,0.07)" }}
     >
       {/* Watermark */}
       <div
         className="absolute right-[-20px] top-1/2 pointer-events-none select-none -rotate-90 -translate-y-1/2 font-black"
         style={{
-          fontFamily: "var(--font-syne,'Syne'),sans-serif",
+          fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
           fontSize: "200px",
           color: "rgba(0,0,0,0.03)",
           letterSpacing: "12px",
