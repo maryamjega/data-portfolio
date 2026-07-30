@@ -93,7 +93,7 @@ export function Hero() {
             style={{
               fontFamily: "var(--font-instrument-serif,'Instrument Serif'),serif",
               fontWeight: 800,
-              fontSize: "clamp(64px,8vw,112px)",
+              fontSize: "clamp(200px,8vw,250px)",
               letterSpacing: "-5px",
               lineHeight: 0.86,
               margin: "0 0 24px",
