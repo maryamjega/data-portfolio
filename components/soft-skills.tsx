@@ -46,7 +46,7 @@ function SoftCard({ card, index }: { card: typeof cards[0]; index: number }) {
       >
         <div
           className="text-[17px] font-bold mb-2"
-          style={{ fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif"", color: "#111010" }}
+          style={{ fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif", color: "#111010" }}
         >
           {card.title}
         </div>
