@@ -43,7 +43,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Maryam Bashir Jega | Data Analyst & Data Science Graduate',
+  title: 'Maryam Bashir Jega | Data Analyst & Scientist Graduate',
   description: 'Portfolio of Maryam Bashir Jega - Data Analyst with a Background in Data Science & AI, focused on AI and Business Intelligence. Turning data into insights that drive financial, business, and operational decisions..',
   icons: {
     icon: [
