@@ -12,7 +12,7 @@ const cards = [
     subtitle: "Next-Generation Esports Experience",
     summary:
             "An AI-enhanced esports platform that combines integrated live streaming, automated match summarisation, and gamified viewer interactions to create a more engaging tournament experience. Designed to improve navigation, user retention, and participation within the Compass ecosystem.",
-    tags: ["AI", "Python", "React",
+    tags: ["AI", "Python", "React"],
   },
   {
     place: "Participant",
@@ -21,7 +21,7 @@ const cards = [
     title: "Agentic Cinema: The Blockbuster Hackathon",
     subtitle: "Enterprise AI Agent Platform",
     summary:
-            "A multi-agent enterprise application that coordinates specialised AI agents to complete complex workflows, connect external tools and data sources, and automate multi-step business processes. Built with Gemini Enterprise and Google Cloud to explore secure, production-ready agent orchestration for real-world enterprise use cases."
+            "A multi-agent enterprise application that coordinates specialised AI agents to complete complex workflows, connect external tools and data sources, and automate multi-step business processes. Built with Gemini Enterprise and Google Cloud to explore secure, production-ready agent orchestration for real-world enterprise use cases.",
     tags: ["Agentic AI", "Gemini", "Enterprise AI"],
   },
 ]
