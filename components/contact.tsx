@@ -42,7 +42,7 @@ export function Contact() {
       id="contact"
       style={{
         padding: "clamp(60px,10vw,140px) clamp(20px,6vw,80px)",
-        background: "#f7f3ee",
+        background: "#ffffff",
         borderTop: "1px solid rgba(0,0,0,0.07)",
         textAlign: "center",
         position: "relative",
@@ -140,7 +140,7 @@ export function Contact() {
                   </div>
                   <div
                     className="font-semibold text-sm transition-colors duration-200"
-                    style={{ fontFamily: "var(--font-syne,'Syne'),sans-serif", color: "#111010" }}
+                    style={{ fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif", color: "#111010" }}
                   >
                     {link.value}
                   </div>
@@ -154,13 +154,13 @@ export function Contact() {
         <AnimatedItem index={5} staggerMs={80}>
           <div className="flex justify-center gap-4 flex-wrap">
             <a
-              href="/Resume Alae Ibnou Cheikh.pdf"
+              href="/Resume_Maryam_Jega.pdf"
               download
               className="px-8 py-[14px] rounded-[10px] text-sm font-semibold no-underline transition-all duration-200"
               style={{
                 background: "#111010",
                 color: "#ffffff",
-                fontFamily: "var(--font-syne,'Syne'),sans-serif",
+                fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
               }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#333" }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#111010" }}
