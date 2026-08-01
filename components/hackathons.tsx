@@ -16,13 +16,13 @@ const cards = [
   },
   {
     place: "3rd",
-    prize: "£2k Hugging Face Credits",
-    event: "Women in AI Hackathon",
-    title: "Soul Echo",
-    subtitle: "AI-Powered Emotional Reflection App",
+    /*prize: "£2k Hugging Face Credits",*/
+    event: "Google Cloud Hackathon",
+    title: "Agentic Cinema: The Blockbuster Hackathon",
+    subtitle: "Enterprise AI Agent Platform",
     summary:
-      "An AI-powered app that lets you record voice notes during emotional moments, then have a conversation with your past self using your own cloned voice. Built with ElevenLabs for voice cloning and natural speech generation, creating a deeply personal reflection experience. Won 3rd place and £2k in Hugging Face credits out of a highly competitive field.",
-    tags: ["ElevenLabs", "Voice Cloning", "Emotional AI"],
+            "A multi-agent enterprise application that coordinates specialised AI agents to complete complex workflows, connect external tools and data sources, and automate multi-step business processes. Built with Gemini Enterprise and Google Cloud to explore secure, production-ready agent orchestration for real-world enterprise use cases."
+    tags: ["Agentic AI", "Gemini", "Enterprise AI"],
   },
 ]
 
