@@ -110,7 +110,7 @@ export default function AboutPage() {
                   Speaker
                 </div>
                 <div className="text-xs mt-1" style={{ color: "#666" }}>
-                  Across industry and university events..
+                  Across industry and university events.
                 </div>
               </div>
               <div className="flex-1 flex flex-col gap-4 text-sm leading-[1.9]" style={{ color: "#888" }}>
