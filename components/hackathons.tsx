@@ -5,14 +5,14 @@ import { AnimatedItem } from "@/components/animated-section"
 
 const cards = [
   {
-    place: "2nd",
-    prize: "Runner-Up",
-    event: "Fashion × AI Hackathon",
-    title: "Retail Therapist",
-    subtitle: "Behaviour-Aware Wardrobe Intelligence",
+    place: "Finalist",
+    /* prize: "Runner-Up",*/
+    event: "Yalla Compass Hackathon",
+    title: "Frent-end Developer",
+    subtitle: "Next-Generation Esports Experience",
     summary:
-      "A behaviour-aware shopping companion that scans your style preferences, mood, and occasion needs to generate ranked outfit recommendations. Built with live product data via API and a rule-based scoring engine that detects wardrobe gaps and outfit compatibility. Includes an Outfit Calendar module to shift the shopping mindset from reactive to intentional.",
-    tags: ["API Integration", "Rule-Based Scoring", "UX"],
+            "An AI-enhanced esports platform that combines integrated live streaming, automated match summarisation, and gamified viewer interactions to create a more engaging tournament experience. Designed to improve navigation, user retention, and participation within the Compass ecosystem.",
+    tags: ["AI", "Python", "React",
   },
   {
     place: "3rd",
@@ -96,7 +96,7 @@ export function Hackathons() {
                 >
                   <span
                     style={{
-                      fontFamily: "var(--font-syne,'Syne'),sans-serif",
+                      fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                       fontWeight: 800,
                       fontSize: 26,
                       color: "#111",
