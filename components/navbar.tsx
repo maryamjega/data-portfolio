@@ -129,7 +129,7 @@ export function Navbar() {
               transition: "color 0.3s",
             }}
           >
-            A<span style={{ color: "#111010" }}>.</span>IC
+            M<span style={{ color: "#111010" }}>.</span>BJ
           </Link>
 
           {/* Desktop links */}
