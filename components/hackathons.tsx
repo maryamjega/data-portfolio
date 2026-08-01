@@ -32,7 +32,7 @@ export function Hackathons() {
       id="hackathons"
       style={{
         padding: "clamp(60px,10vw,140px) clamp(20px,6vw,80px)",
-        background: "#f7f3ee",
+        background: "#ffffff",
         borderTop: "1px solid rgba(0,0,0,0.07)",
       }}
     >
@@ -44,7 +44,7 @@ export function Hackathons() {
             <div
               className="font-black leading-none"
               style={{
-                fontFamily: "var(--font-syne,'Syne'),sans-serif",
+                fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                 fontSize: "clamp(38px,4.5vw,62px)",
                 letterSpacing: "-2.5px",
                 color: "#111",
@@ -137,7 +137,7 @@ export function Hackathons() {
               <div
                 className="font-black leading-tight mb-1"
                 style={{
-                  fontFamily: "var(--font-syne,'Syne'),sans-serif",
+                  fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                   fontSize: "clamp(20px,2vw,26px)",
                   letterSpacing: "-0.8px",
                   color: "#111",
@@ -199,7 +199,7 @@ export function Hackathons() {
                   href="/hackathons"
                   className="inline-flex items-center gap-1 text-[12px] font-bold transition-colors duration-200"
                   style={{
-                    fontFamily: "var(--font-syne,'Syne'),sans-serif",
+                    fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
                     color: "#888",
                     textDecoration: "none",
                   }}
