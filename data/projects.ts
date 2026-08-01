@@ -28,29 +28,29 @@ export const categories: ProjectCategory[] = [
 export const projects: Project[] = [
   {
     slug: "union-shop-ecommerce",
-    title: "Union Shop E-Commerce",
+    title: "Advanced Supply Chain Demand Forecasting",
     summary:
-      "Mobile shopping platform built with Flutter featuring secure login, product filtering, and a fully functional cart system.",
-    techStack: ["Flutter", "Dart"],
-    category: "Mobile",
+      "Advanced supply chain forecasting solution using predictive analytics to improve demand planning, inventory management, and operational decision-making.",
+    techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Jupyter Notebook"],
+    category: "Machine Learning",
     githubUrl: "https://github.com/ibnoucheikhalae/union_shop",
-    highlights: ["Login & auth", "Product filtering", "Cart management"],
+    highlights: ["Demand forecasting", "Inventory optimization", "Predictive modelling"],
     caseStudy: {
       problem:
-        "Local union shops lacked a modern mobile presence, making it difficult for members to browse products and place orders without visiting in person. Existing solutions were web-only and not optimised for mobile workflows.",
+        "Inaccurate demand forecasting can lead to stock shortages, excess inventory, and inefficient supply chain operations. Traditional forecasting methods often struggle to capture changing demand patterns, making planning less reliable.",
       solution:
-        "Built a cross-platform mobile application using Flutter and Dart that provides a complete shopping experience. The app features secure authentication, real-time product browsing with category filters, and a persistent cart system that syncs across sessions.",
-      features: [
-        "Secure login and registration with session persistence",
-        "Product catalogue with category-based filtering and search",
-        "Shopping cart with quantity management and order summary",
-        "Responsive UI adapting to various screen sizes",
-        "State management using Provider pattern",
+        "Built a machine learning forecasting solution that analysed historical supply chain data to predict future demand. The model supports more accurate inventory planning, reduces the risk of stock shortages and overstocking, and provides actionable insights for operational decision-making.",
+     features: [
+        "Demand forecasting using historical supply chain data",
+        "Predictive modelling for inventory planning",
+        "Trend and seasonality analysis",
+        "Forecast performance evaluation and accuracy metrics",
+        "Interactive visualisations for operational insights"
       ],
       results:
-        "Delivered a fully functional prototype demonstrating end-to-end mobile commerce capabilities. The project showcased strong competence in cross-platform development and mobile UX design principles.",
+        "Delivered a forecasting solution capable of generating data-driven demand predictions from historical supply chain data. The project demonstrated practical application of machine learning, predictive analytics, and business decision-making principles.",
       learned:
-        "Deepened my understanding of Flutter state management patterns, particularly Provider vs Riverpod trade-offs. Learned the importance of designing offline-first mobile experiences and handling edge cases in cart synchronisation.",
+  "Strengthened my understanding of demand forecasting and predictive modelling while learning how feature selection, model evaluation, and data quality directly influence forecasting performance. The project also reinforced the importance of translating technical results into actionable business insights.",
     },
   },
   {
