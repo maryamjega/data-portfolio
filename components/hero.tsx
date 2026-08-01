@@ -14,7 +14,7 @@ export function Hero() {
           bottom: -10,
           left: -10,
           fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
-          fontWeight: 900,
+          fontWeight: 1000,
           fontSize: "clamp(100px,14vw,120px)",
           color: "transparent",
           WebkitTextStroke: "1px rgba(17,16,16,0.05)",
