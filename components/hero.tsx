@@ -26,7 +26,7 @@ export function Hero() {
           whiteSpace: "nowrap",
         }}
       >
-        MARYAM BASHIR JEGA
+        MARYAM BASHIR JEGA MARYAM
       </div>
 
       {/* Content grid */}
