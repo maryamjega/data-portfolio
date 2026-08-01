@@ -15,7 +15,7 @@ const cards = [
     tags: ["AI", "Python", "React",
   },
   {
-    place: "3rd",
+    place: "Participant",
     /*prize: "£2k Hugging Face Credits",*/
     event: "Google Cloud Hackathon",
     title: "Agentic Cinema: The Blockbuster Hackathon",
@@ -40,7 +40,7 @@ export function Hackathons() {
       <AnimatedItem index={0}>
         <div className="flex justify-between items-end mb-16 max-md:flex-col max-md:items-start max-md:gap-4">
           <div>
-            <div className="section-tag">Hackathon Wins</div>
+            <div className="section-tag">Hackathons</div>
             <div
               className="font-black leading-none"
               style={{
@@ -50,7 +50,7 @@ export function Hackathons() {
                 color: "#111",
               }}
             >
-              The wins.
+              Highlights.
             </div>
           </div>
           <Link
