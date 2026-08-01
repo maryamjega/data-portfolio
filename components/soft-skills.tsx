@@ -76,7 +76,7 @@ export function SoftSkills() {
         <div
           className="font-black leading-none"
           style={{
-            fontFamily: "var(--font-syne,'Syne'),sans-serif",
+            fontFamily: "var(--font-archivo-black, 'Archivo Black'), sans-serif",
             fontSize: "clamp(38px,4.5vw,62px)",
             letterSpacing: "-2.5px",
           }}
