@@ -151,7 +151,7 @@ export function Projects() {
                 </div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`/images/${card.slug}-preview.jpg`}
+                  src={card.image}
                   alt={card.name}
                   className="w-full h-full object-cover block absolute inset-0 transition-all duration-700 group-hover:scale-[1.05]"
                   style={{ filter: "brightness(.6) saturate(.7)" }}
