@@ -9,6 +9,7 @@ const cardData = [
     cat: "Predictive Analytics · Supply Chain",
     href: "/projects/union-shop-ecommerce",
     name: "Advanced Supply Chain Forecasting",
+    image: "/images/Supply_Chain_Forecast_hero.png",
     desc: "Developed a predictive forecasting model using historical supply chain data to improve demand planning, inventory management, and operational decision-making.",
     highlights: [
       "Preprocessed and analysed historical supply chain data for demand forecasting",
